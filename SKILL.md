@@ -36,7 +36,7 @@ The style reference is a channel studied privately (`references/`: STYLE_BIBLE.m
 - Never say the channel's name in a voice-over or description.
 
 User rules that apply:
-- Default to no continuous subtitles. When requested, use occasional short hook overlays at key story beats, with visible qualifications for forecasts. The included natural-narration data-centre short enables five hooks; edit `src/videos/data-centres/HookOverlays.tsx` or disable them with input props `{ "hooks": false }`.
+- Default to no continuous subtitles. When requested, use occasional short hook overlays at key story beats, with visible qualifications for forecasts. Study actual in-video text with platform CC distinguished from burned-in captions; record primary links and timestamps before styling. The included example uses short outlined phrases, meaningful keyword emphasis, shot-specific clear space and text-free gaps. See `docs/shorts-text-research.md`. Edit `src/videos/data-centres/hook-cues.ts` for wording and native narration anchors, `HookOverlays.tsx` for typography, or disable with input props `{ "hooks": false }`.
 - English only.
 - Voice: natural, expressive conversational delivery. Preserve native speech timing and pitch; do not speed up or pitch-shift narration to simulate enthusiasm. Retiming the animation is preferable to compressing speech.
 - Jokes are researched real facts.

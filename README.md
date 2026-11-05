@@ -41,15 +41,18 @@ The full scene is expensive to render. Video scripts default to one concurrent r
 
 ## Data-centre example: expressive narration and occasional hooks
 
-The fork includes an original data-centre explainer alongside the bridge template. Its latest version uses a conversational synthetic narrator at native speed and pitch, with scene timings following the speech. Five brief animated headlines punctuate key beats; they are not continuous subtitles.
+The fork includes an original data-centre explainer alongside the bridge template. Its latest version uses a conversational synthetic narrator at native speed and pitch, with scene timings following the speech. Short outlined text phrases punctuate selected story beats, with keyword emphasis timed to the narration and a qualified electricity statistic.
+
+The [text research and edit specification](docs/shorts-text-research.md) examines seven popular Shorts from three creators, with primary links, observed frames, timing notes and the reasoning behind this treatment.
 
 ```sh
 npm run render:data-centres:natural
 ```
 
-This renders `DataCentresNatural` as a 72.2-second 1440×2560 video to `out/data-centres/why-neighbours-are-fighting-the-ai-boom-natural-hooks-2k.mp4`. The ready-to-render synthetic soundtrack is bundled as `public/data-centres-natural/mix.mp3`. No speech-service account or API key is needed to render it.
+This renders `DataCentresNatural` as a 72.2-second 1440×2560 video to `out/data-centres/why-neighbours-are-fighting-the-ai-boom-researched-text-2k.mp4`. The ready-to-render synthetic soundtrack is bundled as `public/data-centres-natural/mix.mp3`. No speech-service account or API key is needed to render it.
 
-- Edit headline wording, scene offsets and durations in `src/videos/data-centres/HookOverlays.tsx`.
+- Edit phrases, narration anchors and placement in `src/videos/data-centres/hook-cues.ts`; typography and motion live in `HookOverlays.tsx`. The word anchors use `production/data-centres-natural/words.json` and fail clearly if an edited script no longer matches.
+- The bundled Barlow Condensed font loads before rendering. Its license is in `public/fonts/`.
 - Disable the overlays with `npm run render:data-centres:natural -- --props='{"hooks":false}'` (POSIX shells), or supply a JSON props file on other shells.
 - Keep forecast qualifications on screen: the electricity hook explicitly identifies the IEA projection and years.
 - For narration changes and evidence, see `production/data-centres-natural/README.md` and `production/data-centres/SCRIPT.md`.

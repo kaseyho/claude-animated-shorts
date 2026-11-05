@@ -19,11 +19,12 @@
     "render:smoke": "remotion render src/index.ts BridgeShort out/bridge/smoke.mp4 --frames=100-102 --scale=0.25 --concurrency=1",
     "render:data-centres": "remotion render src/index.ts DataCentres out/data-centres/the-cloud-has-a-neighbour-problem-2k.mp4 --codec=h264 --crf=18 --scale=1.3333333333333333 --concurrency=3 --gl=angle --audio-codec=aac",
     "render:data-centres:energetic": "remotion render src/index.ts DataCentresEnergetic out/data-centres/why-neighbours-are-fighting-the-ai-boom-2k.mp4 --codec=h264 --crf=18 --scale=1.3333333333333333 --concurrency=3 --gl=angle --audio-codec=aac",
-    "render:data-centres:natural": "remotion render src/index.ts DataCentresNatural out/data-centres/why-neighbours-are-fighting-the-ai-boom-natural-hooks-2k.mp4 --codec=h264 --crf=18 --scale=1.3333333333333333 --concurrency=3 --gl=angle --audio-codec=aac"
+    "render:data-centres:natural": "remotion render src/index.ts DataCentresNatural out/data-centres/why-neighbours-are-fighting-the-ai-boom-researched-text-2k.mp4 --codec=h264 --crf=18 --scale=1.3333333333333333 --concurrency=3 --gl=angle --audio-codec=aac"
   },
   "dependencies": {
     "@react-three/fiber": "8.18.0",
     "@react-three/postprocessing": "2.19.1",
+    "@remotion/fonts": "4.0.540",
     "@remotion/three": "4.0.540",
     "postprocessing": "6.39.6",
     "react": "18.3.1",

@@ -20,8 +20,10 @@ Initial speech synthesis requires internet. Exact text, native word timings, sce
 
 ## Occasional editorial hooks
 
-`DataCentresNatural` enables five animated top-of-frame headlines: the opening neighbour question, the electricity forecast, who pays for grid upgrades, residents asking for answers, and the closing question. They appear for 3.3–4.1 seconds each and leave most of the film text-free. The forecast retains its IEA attribution and 2025–2030 period on screen.
+`DataCentresNatural` uses occasional outlined text phrases rather than headline cards. The opening moves through “Harmless?”, “Next door.” and “It's personal.” Subsequent bursts highlight the electricity forecast, costs, noise, residents' demands, consultation before building and the closing question. Most of the film remains text-free. The large approximate multiplier retains its data-centre electricity label, IEA projection attribution and 2025–2030 period for the entire time it appears.
 
-The configuration lives in `src/videos/data-centres/HookOverlays.tsx`. Cue offsets are relative to scene boundaries, so they follow scene retiming. Input props `{ "hooks": false }` disable the overlays. The latest render command produces `out/data-centres/why-neighbours-are-fighting-the-ai-boom-natural-hooks-2k.mp4`.
+The [research document](../../docs/shorts-text-research.md) contains seven primary examples and a timed edit plan. Phrase content, word anchors and shot-specific positions live in `src/videos/data-centres/hook-cues.ts`. `HookOverlays.tsx` handles the bundled font, outlined letters and short emphasis animation. Most starts and emphasis points resolve against this folder's `words.json`; scene-ending boundaries use `natural-story.ts`. Keep both timing files synchronized when rebuilding narration. Missing or ambiguous phrase anchors stop rendering with an explicit error.
+
+Input props `{ "hooks": false }` disable the overlays. The render command produces `out/data-centres/why-neighbours-are-fighting-the-ai-boom-researched-text-2k.mp4`. The speech waveform, pitch and playback speed are unchanged by the text revision.
 
 The ready-to-render audio is `public/data-centres-natural/mix.mp3`; the builder generates both this compact asset and a local WAV master. Personal recordings and generated WAV intermediates are excluded from the public repository.
