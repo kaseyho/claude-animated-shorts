@@ -1,0 +1,43 @@
+{
+  "name": "claude-animated-shorts",
+  "version": "1.0.0",
+  "private": true,
+  "description": "A runnable Remotion starter for the cartoon 3D short templates",
+  "license": "MIT",
+  "engines": {
+    "node": ">=22"
+  },
+  "scripts": {
+    "start": "remotion studio src/index.ts",
+    "studio": "remotion studio src/index.ts",
+    "studio:sandbox": "remotion studio templates/sandbox_index_example.tsx",
+    "typecheck": "tsc --noEmit",
+    "compositions": "remotion compositions src/index.ts",
+    "still": "remotion still src/index.ts BridgeShort out/bridge/still.png --frame=100 --scale=0.5",
+    "stills": "node templates/scripts/bridge-stills.mjs",
+    "render": "remotion render src/index.ts BridgeShort out/bridge/video.mp4 --codec=h264 --crf=16 --concurrency=1",
+    "render:smoke": "remotion render src/index.ts BridgeShort out/bridge/smoke.mp4 --frames=100-102 --scale=0.25 --concurrency=1",
+    "render:data-centres": "remotion render src/index.ts DataCentres out/data-centres/the-cloud-has-a-neighbour-problem-2k.mp4 --codec=h264 --crf=18 --scale=1.3333333333333333 --concurrency=3 --gl=angle --audio-codec=aac",
+    "render:data-centres:energetic": "remotion render src/index.ts DataCentresEnergetic out/data-centres/why-neighbours-are-fighting-the-ai-boom-2k.mp4 --codec=h264 --crf=18 --scale=1.3333333333333333 --concurrency=3 --gl=angle --audio-codec=aac",
+    "render:data-centres:natural": "remotion render src/index.ts DataCentresNatural out/data-centres/why-neighbours-are-fighting-the-ai-boom-natural-hooks-2k.mp4 --codec=h264 --crf=18 --scale=1.3333333333333333 --concurrency=3 --gl=angle --audio-codec=aac"
+  },
+  "dependencies": {
+    "@react-three/fiber": "8.18.0",
+    "@react-three/postprocessing": "2.19.1",
+    "@remotion/three": "4.0.540",
+    "postprocessing": "6.39.6",
+    "react": "18.3.1",
+    "react-dom": "18.3.1",
+    "remotion": "4.0.540",
+    "three": "0.180.0"
+  },
+  "devDependencies": {
+    "@remotion/bundler": "4.0.540",
+    "@remotion/cli": "4.0.540",
+    "@remotion/renderer": "4.0.540",
+    "@types/react": "18.3.12",
+    "@types/react-dom": "18.3.1",
+    "@types/three": "0.180.0",
+    "typescript": "5.9.3"
+  }
+}

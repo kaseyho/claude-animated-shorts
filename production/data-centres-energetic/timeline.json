@@ -1,0 +1,109 @@
+{
+  "fps": 30,
+  "totalDuration": 58.0,
+  "durationInFrames": 1740,
+  "voice": "en-US-GuyNeural",
+  "tempoFactor": 1.5669565217391304,
+  "segments": [
+    {
+      "id": 1,
+      "voiceStart": 0.12,
+      "voiceDuration": 5.056145833333333,
+      "text": "The cloud sounds harmless... until a giant data centre moves next door. Now, some neighbours are fighting back. Why?",
+      "start": 0.0,
+      "duration": 5.266666666666667,
+      "a": 0,
+      "b": 158
+    },
+    {
+      "id": 2,
+      "voiceStart": 5.376145833333333,
+      "voiceDuration": 5.426520833333333,
+      "text": "Because the AI boom needs real buildings. Real land. And a whole lot of resources. This growth has a catch.",
+      "start": 5.266666666666667,
+      "duration": 5.633333333333334,
+      "a": 158,
+      "b": 327
+    },
+    {
+      "id": 3,
+      "voiceStart": 11.002666666666666,
+      "voiceDuration": 4.602229166666667,
+      "text": "The International Energy Agency projects data centres will use roughly DOUBLE the electricity in twenty thirty compared with twenty twenty-five.",
+      "start": 10.9,
+      "duration": 4.8,
+      "a": 327,
+      "b": 471
+    },
+    {
+      "id": 4,
+      "voiceStart": 15.804895833333333,
+      "voiceDuration": 4.3990833333333335,
+      "text": "Now zoom in on your street. Can the grid handle it? And who gets the bill for those new power lines?",
+      "start": 15.7,
+      "duration": 4.6,
+      "a": 471,
+      "b": 609
+    },
+    {
+      "id": 5,
+      "voiceStart": 20.403979166666666,
+      "voiceDuration": 6.7168125,
+      "text": "Then comes cooling. Some systems use water. How much? That depends on the design and location. In dry regions, that matters.",
+      "start": 20.3,
+      "duration": 6.933333333333334,
+      "a": 609,
+      "b": 817
+    },
+    {
+      "id": 6,
+      "voiceStart": 27.32079166666667,
+      "voiceDuration": 5.3668125,
+      "text": "And some neighbours worry about the NOISE. Cooling equipment. Backup generators. Right beside their homes.",
+      "start": 27.233333333333334,
+      "duration": 5.566666666666666,
+      "a": 817,
+      "b": 984
+    },
+    {
+      "id": 7,
+      "voiceStart": 32.88760416666667,
+      "voiceDuration": 5.283083333333333,
+      "text": "This is already a real argument. From Mexico to South Africa, communities have demanded answers about power, water, and nearby development.",
+      "start": 32.8,
+      "duration": 5.466666666666667,
+      "a": 984,
+      "b": 1148
+    },
+    {
+      "id": 8,
+      "voiceStart": 38.3706875,
+      "voiceDuration": 6.7525208333333335,
+      "text": "But wait. Data centres also power useful services. Supporters point to investment and tax revenue. Those benefits belong in the conversation, too.",
+      "start": 38.266666666666666,
+      "duration": 6.966666666666667,
+      "a": 1148,
+      "b": 1357
+    },
+    {
+      "id": 9,
+      "voiceStart": 45.32320833333333,
+      "voiceDuration": 6.83625,
+      "text": "So here is the test. Show the resource use. Control the noise. Explain who pays. And involve residents BEFORE construction starts.",
+      "start": 45.233333333333334,
+      "duration": 7.033333333333333,
+      "a": 1357,
+      "b": 1568
+    },
+    {
+      "id": 10,
+      "voiceStart": 52.359458333333336,
+      "voiceDuration": 4.650041666666667,
+      "text": "The cloud might be global. Its neighbours are local. So if the future moves next door... who gets a say?",
+      "start": 52.266666666666666,
+      "duration": 5.733333333333333,
+      "a": 1568,
+      "b": 1740
+    }
+  ]
+}

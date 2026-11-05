@@ -1,0 +1,9 @@
+Independent visual review
+
+Reviewed: out/data-centres/final-contact-sheet.jpg, extracted from the final video at four-second intervals.
+
+Verdict: no blocking visual defects found in the sampled frames. The opening now establishes the phone-to-physical-infrastructure contrast. The expansion, power, water, noise, community and planning beats are distinguishable. Earlier actor edge clipping is resolved in the sampled scenes, and the increase in electricity symbols is visible. The style and palette remain consistent; no misleading universal-blackout or dry-tap imagery appears.
+
+Minor polish only: the rear participant at the planning table is largely hidden by the building model, and several shots retain generous empty sky. Neither prevents understanding the scene with its narration.
+
+Scope: contact-sheet inspection, not continuous playback or an audio review. Timing, audio and frame-by-frame technical validity are covered separately by the production QA. Black cells after the last image are contact-sheet padding, not assessed as video frames.

@@ -1,0 +1,111 @@
+{
+  "fps": 30,
+  "totalDuration": 72.23333333333333,
+  "durationInFrames": 2167,
+  "voice": "en-US-AndrewMultilingualNeural",
+  "rate": "+0%",
+  "pitch": "+0Hz",
+  "tempoFactor": 1.0,
+  "segments": [
+    {
+      "id": 1,
+      "voiceStart": 0.12,
+      "voiceDuration": 6.696,
+      "text": "The cloud sounds harmless, right? Until a giant data centre moves next door. Suddenly, it's personal.",
+      "start": 0.0,
+      "duration": 6.9,
+      "a": 0,
+      "b": 207
+    },
+    {
+      "id": 2,
+      "voiceStart": 6.976,
+      "voiceDuration": 6.48,
+      "text": "Behind the AI boom are real buildings, using land, power, and other resources.",
+      "start": 6.9,
+      "duration": 6.633333333333334,
+      "a": 207,
+      "b": 406
+    },
+    {
+      "id": 3,
+      "voiceStart": 13.616,
+      "voiceDuration": 8.616,
+      "text": "The International Energy Agency expects data-centre electricity use to roughly double from twenty twenty-five to twenty thirty.",
+      "start": 13.533333333333333,
+      "duration": 8.766666666666667,
+      "a": 406,
+      "b": 669
+    },
+    {
+      "id": 4,
+      "voiceStart": 22.392,
+      "voiceDuration": 5.328,
+      "text": "So neighbours are asking: can our grid cope? And who's paying for those new power lines?",
+      "start": 22.3,
+      "duration": 5.5,
+      "a": 669,
+      "b": 834
+    },
+    {
+      "id": 5,
+      "voiceStart": 27.88,
+      "voiceDuration": 6.816,
+      "text": "Some cooling systems use water, depending on their design and location. In dry regions, that matters.",
+      "start": 27.8,
+      "duration": 6.966666666666667,
+      "a": 834,
+      "b": 1043
+    },
+    {
+      "id": 6,
+      "voiceStart": 34.856,
+      "voiceDuration": 5.592,
+      "text": "Others worry about noise from cooling equipment and backup generators near their homes.",
+      "start": 34.766666666666666,
+      "duration": 5.766666666666667,
+      "a": 1043,
+      "b": 1216
+    },
+    {
+      "id": 7,
+      "voiceStart": 40.608,
+      "voiceDuration": 6.312,
+      "text": "From Mexico to South Africa, communities have demanded clearer answers about projects on their doorstep.",
+      "start": 40.53333333333333,
+      "duration": 6.466666666666667,
+      "a": 1216,
+      "b": 1410
+    },
+    {
+      "id": 8,
+      "voiceStart": 47.08,
+      "voiceDuration": 8.448,
+      "text": "Of course, data centres run useful services. Supporters point to investment and tax revenue. Those benefits matter, too.",
+      "start": 47.0,
+      "duration": 8.6,
+      "a": 1410,
+      "b": 1668
+    },
+    {
+      "id": 9,
+      "voiceStart": 55.688,
+      "voiceDuration": 9.0,
+      "text": "But so does the deal: transparent resource use, noise controls, fair costs, and residents involved before construction starts.",
+      "start": 55.6,
+      "duration": 9.166666666666666,
+      "a": 1668,
+      "b": 1943
+    },
+    {
+      "id": 10,
+      "voiceStart": 64.848,
+      "voiceDuration": 6.672,
+      "text": "The cloud may be global. Its neighbours aren't. If the future's moving next door, shouldn't they get a say?",
+      "start": 64.76666666666667,
+      "duration": 7.466666666666667,
+      "a": 1943,
+      "b": 2167
+    }
+  ]
+}

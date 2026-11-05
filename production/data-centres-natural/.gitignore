@@ -1,0 +1,5 @@
+# Generated intermediates; retain source, timings and evidence.
+*.wav
+*.mp3
+voice_*.json
+*.log

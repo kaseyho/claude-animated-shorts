@@ -1,0 +1,14 @@
+node_modules/
+out/
+dist/
+build/
+.venv/
+__pycache__/
+*.pyc
+_cache/
+.DS_Store
+
+# Generated audio masters and private recordings are not published.
+public/**/*.wav
+*.m4a
+production/**/audio-report.json

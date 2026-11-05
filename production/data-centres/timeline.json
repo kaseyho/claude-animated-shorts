@@ -1,0 +1,109 @@
+{
+  "fps": 30,
+  "totalDuration": 65.0,
+  "durationInFrames": 1950,
+  "voice": "en-GB-RyanNeural",
+  "tempoFactor": 1.1660450160771705,
+  "segments": [
+    {
+      "id": 1,
+      "voiceStart": 0.12,
+      "voiceDuration": 6.357104166666667,
+      "text": "The cloud has a neighbour problem. Online, it feels weightless. On your street, it can look like this.",
+      "start": 0.0,
+      "duration": 6.566666666666666,
+      "a": 0,
+      "b": 197
+    },
+    {
+      "id": 2,
+      "voiceStart": 6.677104166666667,
+      "voiceDuration": 6.296270833333334,
+      "text": "Data centres power our digital lives. But the race to build more, especially for AI, is meeting resistance.",
+      "start": 6.566666666666666,
+      "duration": 6.5,
+      "a": 197,
+      "b": 392
+    },
+    {
+      "id": 3,
+      "voiceStart": 13.173375,
+      "voiceDuration": 5.887020833333334,
+      "text": "The International Energy Agency expects their global electricity demand to roughly double from twenty twenty-five to twenty thirty.",
+      "start": 13.066666666666666,
+      "duration": 6.1,
+      "a": 392,
+      "b": 575
+    },
+    {
+      "id": 4,
+      "voiceStart": 19.260395833333334,
+      "voiceDuration": 6.296270833333334,
+      "text": "For neighbours, the question is closer to home. Can the grid cope? And who pays for new power lines?",
+      "start": 19.166666666666668,
+      "duration": 6.5,
+      "a": 575,
+      "b": 770
+    },
+    {
+      "id": 5,
+      "voiceStart": 25.756666666666668,
+      "voiceDuration": 6.972854166666667,
+      "text": "Cooling can need water, too. How much depends on the technology and location. In dry regions, that matters.",
+      "start": 25.666666666666668,
+      "duration": 7.166666666666667,
+      "a": 770,
+      "b": 985
+    },
+    {
+      "id": 6,
+      "voiceStart": 32.929520833333335,
+      "voiceDuration": 4.50075,
+      "text": "Some neighbours also worry about noise from cooling equipment and backup generators.",
+      "start": 32.833333333333336,
+      "duration": 4.7,
+      "a": 985,
+      "b": 1126
+    },
+    {
+      "id": 7,
+      "voiceStart": 37.630270833333334,
+      "voiceDuration": 6.296270833333334,
+      "text": "From Mexico to South Africa, communities have demanded clearer answers about water, electricity, and what gets built beside them.",
+      "start": 37.53333333333333,
+      "duration": 6.5,
+      "a": 1126,
+      "b": 1321
+    },
+    {
+      "id": 8,
+      "voiceStart": 44.12654166666667,
+      "voiceDuration": 7.2364375,
+      "text": "Supporters point to investment, tax revenue, and useful digital services. But promised benefits do not settle every local concern.",
+      "start": 44.03333333333333,
+      "duration": 7.433333333333334,
+      "a": 1321,
+      "b": 1544
+    },
+    {
+      "id": 9,
+      "voiceStart": 51.562979166666665,
+      "voiceDuration": 6.932291666666667,
+      "text": "A better bargain means transparent resource use, noise controls, fair infrastructure costs, and residents involved before construction starts.",
+      "start": 51.46666666666667,
+      "duration": 7.133333333333334,
+      "a": 1544,
+      "b": 1758
+    },
+    {
+      "id": 10,
+      "voiceStart": 58.69527083333333,
+      "voiceDuration": 5.254708333333333,
+      "text": "People are asking a simple question. If the future is moving into our neighbourhood, do we get a say?",
+      "start": 58.6,
+      "duration": 6.4,
+      "a": 1758,
+      "b": 1950
+    }
+  ]
+}

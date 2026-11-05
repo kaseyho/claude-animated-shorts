@@ -5,6 +5,26 @@ description: Make a ~55-70 s vertical cartoon story short in the "2D characters 
 
 # Cartoon 3D story short (three.js + Remotion)
 
+## Runnable starter setup
+
+This repository is also a standalone Remotion project. From its root, run `npm ci`,
+`npm run typecheck`, `npm run still`, then `npm start`. Node 22+, Python 3.10+,
+ffmpeg and ffprobe are required for the complete workflow; Python dependencies are
+in `requirements.txt`. See `README.md` for setup, rendering and audio commands.
+
+The starter's entry is `src/index.ts`, its root is `src/Root.tsx`, and its bridge
+composition lives in `templates/bridge/Main.tsx`. The `src/videos/bridge/` paths
+below describe copying the template into a production project, not an existing
+folder in this checkout. The included sandbox entry runs directly against
+`templates/bridge/Main.tsx`; an isolated copy must be created before changing its import.
+Only the selected entry calls `registerRoot()`. Never put registration in a React
+component file or import another entry from a root/component; this avoids duplicate
+registration during hot refresh. Import `BridgeComposition` into an existing root.
+
+Optional GLB props and narration are not included. The procedural scene renders
+without them; supply your own audio before mixing. Keep the locked package versions
+together: the postprocessing shaders depend on the pinned three.js implementation.
+
 Proven example: **The Bridge That Fell for a Song**. It is an original 67 s short about the 1831 Broughton bridge and 74 soldiers marching in step.
 - Code: `src/videos/bridge/` of your Remotion project (composition `BridgeShort`, 1080x1920, 30 fps).
 - Script, voice and sound: `~/bridge-short/`.
@@ -16,9 +36,9 @@ The style reference is a channel studied privately (`references/`: STYLE_BIBLE.m
 - Never say the channel's name in a voice-over or description.
 
 User rules that apply:
-- No captions or labels in the video.
+- Default to no continuous subtitles. When requested, use occasional short hook overlays at key story beats, with visible qualifications for forecasts. The included natural-narration data-centre short enables five hooks; edit `src/videos/data-centres/HookOverlays.tsx` or disable them with input props `{ "hooks": false }`.
 - English only.
-- Voice: one steady tone.
+- Voice: natural, expressive conversational delivery. Preserve native speech timing and pitch; do not speed up or pitch-shift narration to simulate enthusiasm. Retiming the animation is preferable to compressing speech.
 - Jokes are researched real facts.
 - Standard mix: music +3 dB, SFX -6 dB, voice unchanged.
 - Final export 2K vertical: 1440x2560, `--scale 1.3333`.

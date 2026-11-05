@@ -8,7 +8,7 @@
 // Place changes crossfade by stacking a second canvas for the fade frames; the hook ends on a 4-frame white flash.
 import React, { useEffect, useMemo, useState } from "react";
 import * as THREE from "three";
-import { AbsoluteFill, continueRender, delayRender, getInputProps, useCurrentFrame } from "remotion";
+import { AbsoluteFill, cancelRender, continueRender, delayRender, getInputProps, useCurrentFrame } from "remotion";
 import { ThreeCanvas } from "@remotion/three";
 import { useThree } from "@react-three/fiber";
 import { EffectComposer } from "@react-three/postprocessing";
@@ -42,7 +42,7 @@ const fwd = new THREE.Vector3(), fpt = new THREE.Vector3();
 const useKit = () => {
   const [kit, setKit] = useState<Kit | null>(null);
   const [handle] = useState(() => delayRender("bridge kit"));
-  useEffect(() => { loadKit().then((k) => { setKit(k); continueRender(handle); }); }, [handle]);
+  useEffect(() => { loadKit().then((k) => { setKit(k); continueRender(handle); }).catch(cancelRender); }, [handle]);
   return kit;
 };
 
@@ -63,13 +63,15 @@ const Inner: React.FC<{ id: number; kit: Kit }> = ({ id, kit }) => {
   useEffect(() => () => fx.ink.dispose(), [fx]);
   const post = useMemo(() => (
     <EffectComposer multisampling={4}>
-      {on.ink ? <primitive object={fx.ink} dispose={null} /> : null}
-      {on.lens && on.pre ? <primitive object={fx.lens.pre} dispose={null} /> : null}
-      {on.lens ? <primitive object={fx.lens.main} dispose={null} /> : null}
-      {on.bloom ? <primitive object={fx.bloom} dispose={null} /> : null}
-      <primitive object={fx.tone} dispose={null} />
-      {on.grade ? <primitive object={fx.grade} dispose={null} /> : null}
-      {on.grain ? <primitive object={fx.grain} dispose={null} /> : null}
+      {[
+        ...(on.ink ? [fx.ink] : []),
+        ...(on.lens && on.pre ? [fx.lens.pre] : []),
+        ...(on.lens ? [fx.lens.main] : []),
+        ...(on.bloom ? [fx.bloom] : []),
+        fx.tone,
+        ...(on.grade ? [fx.grade] : []),
+        ...(on.grain ? [fx.grain] : []),
+      ].map((effect, index) => <primitive key={`${effect.name}-${index}`} object={effect} dispose={null} />)}
     </EffectComposer>
   ), [fx, on]);
   const cam = camera as THREE.PerspectiveCamera;
