@@ -2,9 +2,21 @@
 
 The free Claude skill from the video **"How to Make Viral Animated Shorts Using Claude (Full Workflow)"**, now with a runnable Remotion project.
 
-It makes 55–70 s vertical animated story shorts: 2D characters in a colourful 3D world, with ink outlines, a painted town, lens blur, gliding cameras, a march score and sound effects. Rendering uses three.js inside Remotion on your computer.
+It makes vertical animated story shorts: 2D characters in a colourful 3D world, with ink outlines, painted environments, lens blur, camera moves, narration and sound. Duration follows the story and natural voice take. Rendering uses three.js inside Remotion on your computer.
 
 The included picture timeline is **The Bridge That Fell for a Song**, a 67.5 s short about the 1831 Broughton bridge.
+
+## Start with the Shorts playbook
+
+The [production playbook](docs/shorts-playbook.md) turns research into a workflow for hooks, curiosity, causal progression, visual proof, expressive sound and satisfying endings. It includes reusable format recipes and concrete production steps.
+
+- [Channel study](docs/research/shorts-channel-study.md): 15 popular Shorts across Zack D. Films, MrBeast, Jenny Hoyos, Alan's Universe and Stokes Twins, with five closer visual readings, timestamps, primary links and dated public counts. [CSV dataset](docs/research/shorts-sample.csv).
+- [Creator evidence](docs/research/shorts-creator-evidence.md): seven interview, platform and firsthand sources, separating observations from production inferences.
+- [Production brief](templates/SHORTS_BRIEF.md) and [beat sheet](templates/SHORTS_BEAT_SHEET.md): copy these for each new Short, then follow [SKILL.md](SKILL.md) for implementation.
+- [Measurement guide](docs/research/shorts-measurement.md): current analytics definitions and a practical experiment log. Public views do not prove which editing choice worked.
+- [Data-centre application](production/data-centres-natural/RETENTION_BLUEPRINT.md): original hook options and an asset-aware beat plan, explicitly proposed and not yet rendered. The current boxed-caption film remains available below.
+
+The research adapts storytelling mechanics into original scripts and scenes. The active workflow no longer treats fixed speech speed, mandatory flashes, constant camera movement or a fixed music boost as universal rules.
 
 ## Requirements
 
@@ -137,6 +149,8 @@ Copy this folder to `~/.claude/skills/cartoon-3d-short/`, then say: *"Use the ca
 | `package.json`, `package-lock.json` | Pinned, reproducible JavaScript setup and runnable commands |
 | `src/` | Remotion entry and root |
 | `SKILL.md` | Production pipeline and look values |
+| `docs/shorts-playbook.md`, `docs/research/` | Shorts strategy, source evidence, sample dataset and measurement |
+| `templates/SHORTS_BRIEF.md`, `templates/SHORTS_BEAT_SHEET.md` | Reusable premise, evidence, story and timing plans |
 | `templates/bridge/` | Composition, world, characters, ink, lens blur, grade, story/camera |
 | `templates/audio/` | Synthesized SFX, march music and voice-driven mix |
 | `templates/scripts/` | Stills, side-by-side sheets, shot metadata, merge and QA helpers |

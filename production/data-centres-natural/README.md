@@ -1,5 +1,7 @@
 # Natural narration revision
 
+For a research-based story revision, see the [proposed retention blueprint](RETENTION_BLUEPRINT.md) and [Shorts playbook](../../docs/shorts-playbook.md). The blueprint documents original opening options, causal beats and all dependent timing files; it has not been applied to this version's narration or render.
+
 The previous energetic version used a news-style voice, a pitch boost, a +15% synthesis rate and approximately 1.57× additional speech time compression. This revision uses the stock conversational voice `en-US-AndrewMultilingualNeural` at its native rate and pitch. The full speech waveform and internal pauses are preserved; there is no time stretching. Scene boundaries are derived from actual speech duration.
 
 The script is shortened to 161 words and rewritten with contractions and connected sentences. The factual claims remain those documented in [the original evidence notes](../data-centres/SCRIPT.md). The IEA electricity figure is a projection, local opposition examples do not represent worldwide unanimity, and resource impacts vary by facility and location.
