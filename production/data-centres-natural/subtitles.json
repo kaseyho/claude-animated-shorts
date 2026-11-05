@@ -1,0 +1,388 @@
+{
+  "fps": 30,
+  "durationInFrames": 2167,
+  "wordCount": 161,
+  "cues": [
+    {
+      "id": 1,
+      "scene": 1,
+      "from": 7,
+      "to": 53,
+      "firstWord": 0,
+      "lastWord": 4,
+      "lines": [
+        "The cloud sounds",
+        "harmless, right?"
+      ]
+    },
+    {
+      "id": 2,
+      "scene": 1,
+      "from": 59,
+      "to": 143,
+      "firstWord": 5,
+      "lastWord": 12,
+      "lines": [
+        "Until a giant data centre",
+        "moves next door."
+      ]
+    },
+    {
+      "id": 3,
+      "scene": 1,
+      "from": 149,
+      "to": 199,
+      "firstWord": 13,
+      "lastWord": 15,
+      "lines": [
+        "Suddenly, it's personal."
+      ]
+    },
+    {
+      "id": 4,
+      "scene": 2,
+      "from": 213,
+      "to": 254,
+      "firstWord": 16,
+      "lastWord": 19,
+      "lines": [
+        "Behind the AI boom"
+      ]
+    },
+    {
+      "id": 5,
+      "scene": 2,
+      "from": 254,
+      "to": 297,
+      "firstWord": 20,
+      "lastWord": 22,
+      "lines": [
+        "are real buildings,"
+      ]
+    },
+    {
+      "id": 6,
+      "scene": 2,
+      "from": 298,
+      "to": 398,
+      "firstWord": 23,
+      "lastWord": 28,
+      "lines": [
+        "using land, power,",
+        "and other resources."
+      ]
+    },
+    {
+      "id": 7,
+      "scene": 3,
+      "from": 411,
+      "to": 465,
+      "firstWord": 29,
+      "lastWord": 32,
+      "lines": [
+        "The International",
+        "Energy Agency"
+      ]
+    },
+    {
+      "id": 8,
+      "scene": 3,
+      "from": 465,
+      "to": 550,
+      "firstWord": 33,
+      "lastWord": 36,
+      "lines": [
+        "expects data-centre",
+        "electricity use"
+      ]
+    },
+    {
+      "id": 9,
+      "scene": 3,
+      "from": 551,
+      "to": 588,
+      "firstWord": 37,
+      "lastWord": 39,
+      "lines": [
+        "to roughly double"
+      ]
+    },
+    {
+      "id": 10,
+      "scene": 3,
+      "from": 591,
+      "to": 661,
+      "firstWord": 40,
+      "lastWord": 45,
+      "lines": [
+        "from twenty twenty-five",
+        "to twenty thirty."
+      ]
+    },
+    {
+      "id": 11,
+      "scene": 4,
+      "from": 675,
+      "to": 710,
+      "firstWord": 46,
+      "lastWord": 49,
+      "lines": [
+        "So neighbours are asking:"
+      ]
+    },
+    {
+      "id": 12,
+      "scene": 4,
+      "from": 718,
+      "to": 748,
+      "firstWord": 50,
+      "lastWord": 53,
+      "lines": [
+        "can our grid cope?"
+      ]
+    },
+    {
+      "id": 13,
+      "scene": 4,
+      "from": 754,
+      "to": 826,
+      "firstWord": 54,
+      "lastWord": 61,
+      "lines": [
+        "And who's paying",
+        "for those new power lines?"
+      ]
+    },
+    {
+      "id": 14,
+      "scene": 5,
+      "from": 839,
+      "to": 902,
+      "firstWord": 62,
+      "lastWord": 66,
+      "lines": [
+        "Some cooling systems",
+        "use water,"
+      ]
+    },
+    {
+      "id": 15,
+      "scene": 5,
+      "from": 904,
+      "to": 967,
+      "firstWord": 67,
+      "lastWord": 72,
+      "lines": [
+        "depending on their",
+        "design and location."
+      ]
+    },
+    {
+      "id": 16,
+      "scene": 5,
+      "from": 974,
+      "to": 1035,
+      "firstWord": 73,
+      "lastWord": 77,
+      "lines": [
+        "In dry regions,",
+        "that matters."
+      ]
+    },
+    {
+      "id": 17,
+      "scene": 6,
+      "from": 1048,
+      "to": 1094,
+      "firstWord": 78,
+      "lastWord": 81,
+      "lines": [
+        "Others worry about noise"
+      ]
+    },
+    {
+      "id": 18,
+      "scene": 6,
+      "from": 1094,
+      "to": 1177,
+      "firstWord": 82,
+      "lastWord": 87,
+      "lines": [
+        "from cooling equipment",
+        "and backup generators"
+      ]
+    },
+    {
+      "id": 19,
+      "scene": 6,
+      "from": 1177,
+      "to": 1208,
+      "firstWord": 88,
+      "lastWord": 90,
+      "lines": [
+        "near their homes."
+      ]
+    },
+    {
+      "id": 20,
+      "scene": 7,
+      "from": 1222,
+      "to": 1281,
+      "firstWord": 91,
+      "lastWord": 95,
+      "lines": [
+        "From Mexico",
+        "to South Africa,"
+      ]
+    },
+    {
+      "id": 21,
+      "scene": 7,
+      "from": 1286,
+      "to": 1347,
+      "firstWord": 96,
+      "lastWord": 100,
+      "lines": [
+        "communities have demanded",
+        "clearer answers"
+      ]
+    },
+    {
+      "id": 22,
+      "scene": 7,
+      "from": 1347,
+      "to": 1403,
+      "firstWord": 101,
+      "lastWord": 105,
+      "lines": [
+        "about projects",
+        "on their doorstep."
+      ]
+    },
+    {
+      "id": 23,
+      "scene": 8,
+      "from": 1415,
+      "to": 1514,
+      "firstWord": 106,
+      "lastWord": 112,
+      "lines": [
+        "Of course, data centres",
+        "run useful services."
+      ]
+    },
+    {
+      "id": 24,
+      "scene": 8,
+      "from": 1521,
+      "to": 1609,
+      "firstWord": 113,
+      "lastWord": 119,
+      "lines": [
+        "Supporters point to",
+        "investment and tax revenue."
+      ]
+    },
+    {
+      "id": 25,
+      "scene": 8,
+      "from": 1616,
+      "to": 1660,
+      "firstWord": 120,
+      "lastWord": 123,
+      "lines": [
+        "Those benefits matter, too."
+      ]
+    },
+    {
+      "id": 26,
+      "scene": 9,
+      "from": 1674,
+      "to": 1712,
+      "firstWord": 124,
+      "lastWord": 128,
+      "lines": [
+        "But so does the deal:"
+      ]
+    },
+    {
+      "id": 27,
+      "scene": 9,
+      "from": 1719,
+      "to": 1771,
+      "firstWord": 129,
+      "lastWord": 131,
+      "lines": [
+        "transparent resource use,"
+      ]
+    },
+    {
+      "id": 28,
+      "scene": 9,
+      "from": 1778,
+      "to": 1849,
+      "firstWord": 132,
+      "lastWord": 135,
+      "lines": [
+        "noise controls, fair costs,"
+      ]
+    },
+    {
+      "id": 29,
+      "scene": 9,
+      "from": 1851,
+      "to": 1935,
+      "firstWord": 136,
+      "lastWord": 141,
+      "lines": [
+        "and residents involved",
+        "before construction starts."
+      ]
+    },
+    {
+      "id": 30,
+      "scene": 10,
+      "from": 1949,
+      "to": 2000,
+      "firstWord": 142,
+      "lastWord": 146,
+      "lines": [
+        "The cloud may be global."
+      ]
+    },
+    {
+      "id": 31,
+      "scene": 10,
+      "from": 2007,
+      "to": 2037,
+      "firstWord": 147,
+      "lastWord": 149,
+      "lines": [
+        "Its neighbours aren't."
+      ]
+    },
+    {
+      "id": 32,
+      "scene": 10,
+      "from": 2044,
+      "to": 2099,
+      "firstWord": 150,
+      "lastWord": 155,
+      "lines": [
+        "If the future's",
+        "moving next door,"
+      ]
+    },
+    {
+      "id": 33,
+      "scene": 10,
+      "from": 2105,
+      "to": 2140,
+      "firstWord": 156,
+      "lastWord": 160,
+      "lines": [
+        "shouldn't they get a say?"
+      ]
+    }
+  ]
+}

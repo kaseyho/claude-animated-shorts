@@ -2,6 +2,8 @@
 
 Research and production specification for the data-centre film, 5 November 2026.
 
+The environments described below remain in the current export. The later [subtitle revision](../production/data-centres-natural/SUBTITLES.md) replaces the editorial text visible in this study's comparison frames with the full spoken script. The output filename and QA below refer to the background revision; see the repository README for the current render.
+
 The film needs a world that continues beyond its main characters. Its circular platforms, single buildings and flat sky make neighbourhood scenes look like diagrams. The revision replaces those platforms with connected streets and courtyards, adds several layers of architecture and people, and gives the electricity and planning scenes their own interiors.
 
 The references support **complete places, purposeful detail and clear visual hierarchy**. They also show when to simplify: an explanatory close-up can carry less surrounding detail than a street scene. More background activity should make the neighbourhood feel inhabited while leaving the current narration, characters and text easy to follow.

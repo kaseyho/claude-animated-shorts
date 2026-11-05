@@ -10,5 +10,5 @@ export const RemotionRoot: React.FC = () => <>
   <BridgeComposition />
   <Composition id="DataCentres" component={DataCentres} durationInFrames={TOTAL} fps={FPS} width={1080} height={1920}/>
   <Composition id="DataCentresEnergetic" component={DataCentres} defaultProps={{variant:"energetic"}} durationInFrames={ENERGETIC_TOTAL} fps={FPS} width={1080} height={1920}/>
-  <Composition id="DataCentresNatural" component={DataCentres} defaultProps={{variant:"natural",hooks:true}} durationInFrames={NATURAL_TOTAL} fps={FPS} width={1080} height={1920}/>
+  <Composition id="DataCentresNatural" component={DataCentres} defaultProps={{variant:"natural"}} durationInFrames={NATURAL_TOTAL} fps={FPS} width={1080} height={1920}/>
 </>;

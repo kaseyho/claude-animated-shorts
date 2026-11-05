@@ -18,13 +18,13 @@ npm run render:data-centres:natural
 
 Initial speech synthesis requires internet. Exact text, native word timings, scene timings and audio measurements are saved alongside the build script. Regenerate `src/videos/data-centres/natural-story.ts` from `timeline.json` if the script or voice changes before rendering.
 
-## Occasional editorial hooks
+## Synchronized script subtitles
 
-`DataCentresNatural` uses occasional outlined text phrases rather than headline cards. The opening moves through “Harmless?”, “Next door.” and “It's personal.” Subsequent bursts highlight the electricity forecast, costs, noise, residents' demands, consultation before building and the closing question. Most of the film remains text-free. The large approximate multiplier retains its data-centre electricity label, IEA projection attribution and 2025–2030 period for the entire time it appears.
+`DataCentresNatural` now displays the complete spoken script in plain white outlined subtitles. All 161 words, with their original punctuation, are grouped into 33 phrases. Each phrase starts at its first spoken word and ends shortly after its last word, before the next phrase or scene cut. This replaces the previous clickbait text entirely.
 
-The [research document](../../docs/shorts-text-research.md) contains seven primary examples and a timed edit plan. Phrase content, word anchors and shot-specific positions live in `src/videos/data-centres/hook-cues.ts`. `HookOverlays.tsx` handles the bundled font, outlined letters and short emphasis animation. Most starts and emphasis points resolve against this folder's `words.json`; scene-ending boundaries use `natural-story.ts`. Keep both timing files synchronized when rebuilding narration. Missing or ambiguous phrase anchors stop rendering with an explicit error.
+The [subtitle specification](SUBTITLES.md) describes the exact timing and layout. Edit phrase and line breaks in `subtitle-phrases.json`, then run `npm run subtitles:data-centres` to generate `subtitles.json` and the standalone `subtitles.srt`. The builder validates every word against `timeline.json` and `words.json`; the render command checks both generated files for drift. Rebuilding audio also regenerates subtitles, and fails if edited phrase text no longer matches the script. `Subtitles.tsx` handles the bundled font and steady lower-frame placement.
 
-Input props `{ "hooks": false }` disable the overlays. The render command produces `out/data-centres/why-neighbours-are-fighting-the-ai-boom-populated-world-2k.mp4`. The speech waveform, pitch and playback speed are unchanged by the visual revisions.
+Input props `{ "subtitles": false }` disable subtitles. The legacy `{ "hooks": false }` alias remains supported; explicit `subtitles` takes precedence. The render command produces `out/data-centres/why-neighbours-are-fighting-the-ai-boom-subtitled-2k.mp4`. The speech waveform, pitch, playback speed and populated environments are unchanged by this subtitle revision. The [earlier text study](../../docs/shorts-text-research.md) remains a historical research record.
 
 ## Populated environments
 

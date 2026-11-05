@@ -162,6 +162,7 @@ async def main():
     mastered=run('ffmpeg','-y','-hide_banner','-i',HERE/'premix.wav','-af',filt,'-ar',SR,'-c:a','pcm_s24le',OUT/'mix.wav')
     (HERE/'audio-report.json').write_text(json.dumps({'normalizationAnalysis':data,'masteringLog':mastered.stderr,'seed':46251,'bpm':104,'music':'original synthesized F minor score','voice':VOICE},indent=2))
     run('ffmpeg', '-y', '-v', 'error', '-i', OUT/'mix.wav', '-c:a', 'libmp3lame', '-q:a', '2', OUT/'mix.mp3')
+    print(run('node', HERE/'build_subtitles.mjs').stdout.strip(), flush=True)
     print('Audio complete:',OUT/'mix.wav',flush=True)
 
 asyncio_sem = asyncio.Semaphore(3)

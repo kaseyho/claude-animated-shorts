@@ -2,7 +2,7 @@
 
 Research and edit specification for the data-centre short, 5 November 2026.
 
-This records the text revision. The current default export also includes the subsequent [background and environment revision](shorts-background-research.md); its current output path and validation are documented there and in the repository README.
+Historical revision: the observations and edit plan below document the earlier selective text treatment. The user's subsequent request replaces those editorial hooks with full verbatim subtitles synchronized to the voice. The current implementation and output are documented in the [subtitle specification](../production/data-centres-natural/SUBTITLES.md) and repository README. References below to `hook-cues.ts` and `HookOverlays.tsx` describe the previous implementation; those files have been removed. The [background and environment revision](shorts-background-research.md) remains in the current video.
 
 The strongest transferable pattern is **small units of text that arrive with a story beat and then leave**. In the sampled videos, words sit directly on the picture with a dark outline; colour singles out a meaningful word or amount. A permanent title card is not the common treatment. Some successful scenes, and one sampled animated explainer, carry no burned-in text at all.
 

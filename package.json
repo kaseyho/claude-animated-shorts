@@ -12,6 +12,8 @@
     "studio": "remotion studio src/index.ts",
     "studio:sandbox": "remotion studio templates/sandbox_index_example.tsx",
     "typecheck": "tsc --noEmit",
+    "subtitles:data-centres": "node production/data-centres-natural/build_subtitles.mjs",
+    "subtitles:check": "node production/data-centres-natural/build_subtitles.mjs --check",
     "compositions": "remotion compositions src/index.ts",
     "still": "remotion still src/index.ts BridgeShort out/bridge/still.png --frame=100 --scale=0.5",
     "stills": "node templates/scripts/bridge-stills.mjs",
@@ -19,7 +21,8 @@
     "render:smoke": "remotion render src/index.ts BridgeShort out/bridge/smoke.mp4 --frames=100-102 --scale=0.25 --concurrency=1",
     "render:data-centres": "remotion render src/index.ts DataCentres out/data-centres/the-cloud-has-a-neighbour-problem-2k.mp4 --codec=h264 --crf=18 --scale=1.3333333333333333 --concurrency=3 --gl=angle --audio-codec=aac",
     "render:data-centres:energetic": "remotion render src/index.ts DataCentresEnergetic out/data-centres/why-neighbours-are-fighting-the-ai-boom-2k.mp4 --codec=h264 --crf=18 --scale=1.3333333333333333 --concurrency=3 --gl=angle --audio-codec=aac",
-    "render:data-centres:natural": "remotion render src/index.ts DataCentresNatural out/data-centres/why-neighbours-are-fighting-the-ai-boom-populated-world-2k.mp4 --codec=h264 --crf=18 --scale=1.3333333333333333 --concurrency=3 --gl=angle --audio-codec=aac"
+    "prerender:data-centres:natural": "npm run subtitles:check",
+    "render:data-centres:natural": "remotion render src/index.ts DataCentresNatural out/data-centres/why-neighbours-are-fighting-the-ai-boom-subtitled-2k.mp4 --codec=h264 --crf=18 --scale=1.3333333333333333 --concurrency=3 --gl=angle --audio-codec=aac"
   },
   "dependencies": {
     "@react-three/fiber": "8.18.0",

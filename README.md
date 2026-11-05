@@ -39,11 +39,11 @@ npm run render -- --scale=1.3333333333333333
 
 The full scene is expensive to render. Video scripts default to one concurrent render to limit GPU memory use; increase `--concurrency` if your machine can handle it.
 
-## Data-centre example: expressive narration and occasional hooks
+## Data-centre example: expressive narration and synchronized subtitles
 
-The fork includes an original data-centre explainer alongside the bridge template. Its latest version uses a conversational synthetic narrator at native speed and pitch, with scene timings following the speech. Short outlined text phrases punctuate selected story beats, with keyword emphasis timed to the narration and a qualified electricity statistic.
+The fork includes an original data-centre explainer alongside the bridge template. Its latest version uses a conversational synthetic narrator at native speed and pitch, with scene timings following the speech. Plain white outlined subtitles reproduce all 161 script words, including punctuation, in 33 short phrases synchronized to the narration. They replace the earlier editorial clickbait overlays.
 
-The [text research and edit specification](docs/shorts-text-research.md) examines seven popular Shorts from three creators, with primary links, observed frames, timing notes and the reasoning behind this treatment.
+The [subtitle specification](production/data-centres-natural/SUBTITLES.md) documents the current wording, timing and layout. The earlier [text research](docs/shorts-text-research.md) remains available as a record of the previous treatment.
 
 The [background research and production specification](docs/shorts-background-research.md) examines ten animated Shorts. The latest render replaces the isolated platforms with connected streets, layered neighbourhoods, supporting residents and traffic, construction/service detail, a server hall and a civic meeting room. Background animation is deterministic and all scenery is generated locally.
 
@@ -51,13 +51,13 @@ The [background research and production specification](docs/shorts-background-re
 npm run render:data-centres:natural
 ```
 
-This renders `DataCentresNatural` as a 72.2-second 1440×2560 video to `out/data-centres/why-neighbours-are-fighting-the-ai-boom-populated-world-2k.mp4`. The ready-to-render synthetic soundtrack is bundled as `public/data-centres-natural/mix.mp3`. No speech-service account or API key is needed to render it.
+This renders `DataCentresNatural` as a 72.2-second 1440×2560 video to `out/data-centres/why-neighbours-are-fighting-the-ai-boom-subtitled-2k.mp4`. The ready-to-render synthetic soundtrack is bundled as `public/data-centres-natural/mix.mp3`. No speech-service account or API key is needed to render it.
 
-- Edit phrases, narration anchors and placement in `src/videos/data-centres/hook-cues.ts`; typography and motion live in `HookOverlays.tsx`. The word anchors use `production/data-centres-natural/words.json` and fail clearly if an edited script no longer matches.
+- Edit line and phrase breaks in `production/data-centres-natural/subtitle-phrases.json`, then run `npm run subtitles:data-centres`. The builder checks the complete script against `timeline.json` and native `words.json` timings. The render command checks for stale subtitle files before starting.
+- The generated `production/data-centres-natural/subtitles.srt` contains the same wording and frame-rounded timing as the burned-in subtitles. Typography and placement live in `src/videos/data-centres/Subtitles.tsx`.
 - The bundled Barlow Condensed font loads before rendering. Its license is in `public/fonts/`.
 - Edit reusable streets, buildings, supporting actors and scene-specific set dressing in `src/videos/data-centres/environment.ts`. Main story objects and camera moves remain in `world.ts`. Review the full shot when moving props; the portrait cameras can hide objects that look nearby in world coordinates.
-- Disable the overlays with `npm run render:data-centres:natural -- --props='{"hooks":false}'` (POSIX shells), or supply a JSON props file on other shells.
-- Keep forecast qualifications on screen: the electricity hook explicitly identifies the IEA projection and years.
+- Disable subtitles with `npm run render:data-centres:natural -- --props='{"subtitles":false}'` (POSIX shells), or supply a JSON props file on other shells. The legacy `hooks: false` prop also works; an explicit `subtitles` value takes precedence.
 - For narration changes and evidence, see `production/data-centres-natural/README.md` and `production/data-centres/SCRIPT.md`.
 - Earlier original and energetic variants remain available for comparison, using the corresponding render scripts. The natural variant is recommended; it avoids speech time compression.
 
