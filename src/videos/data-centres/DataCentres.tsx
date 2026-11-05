@@ -17,6 +17,7 @@ const Scene:React.FC<Props>=({variant='original'})=>{
   const stage=useMemo(()=>new Stage(shot.id),[shot.id]);
   useEffect(()=>()=>stage.dispose(),[stage]);
   scene.background=new THREE.Color(stage.background);
+  scene.fog=stage.fog;
   const t=frame/FPS-shot.start;
   stage.update(variant !== 'original' ? t * SHOTS[shot.id-1].duration / shot.duration : t,Math.max(0,Math.min(1,t/shot.duration)),camera as THREE.PerspectiveCamera);
   return <primitive object={stage.root} />;

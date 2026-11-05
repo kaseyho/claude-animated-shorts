@@ -2,6 +2,8 @@
 
 Research and edit specification for the data-centre short, 5 November 2026.
 
+This records the text revision. The current default export also includes the subsequent [background and environment revision](shorts-background-research.md); its current output path and validation are documented there and in the repository README.
+
 The strongest transferable pattern is **small units of text that arrive with a story beat and then leave**. In the sampled videos, words sit directly on the picture with a dark outline; colour singles out a meaningful word or amount. A permanent title card is not the common treatment. Some successful scenes, and one sampled animated explainer, carry no burned-in text at all.
 
 For this film, replace the five boxed headlines with occasional short phrases timed to the existing natural narration. Let the opening develop from apparent harmlessness to a neighbour problem. Give the electricity forecast one larger numerical moment. Preserve text-free sections so the animation remains the story.

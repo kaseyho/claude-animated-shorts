@@ -24,6 +24,10 @@ Initial speech synthesis requires internet. Exact text, native word timings, sce
 
 The [research document](../../docs/shorts-text-research.md) contains seven primary examples and a timed edit plan. Phrase content, word anchors and shot-specific positions live in `src/videos/data-centres/hook-cues.ts`. `HookOverlays.tsx` handles the bundled font, outlined letters and short emphasis animation. Most starts and emphasis points resolve against this folder's `words.json`; scene-ending boundaries use `natural-story.ts`. Keep both timing files synchronized when rebuilding narration. Missing or ambiguous phrase anchors stop rendering with an explicit error.
 
-Input props `{ "hooks": false }` disable the overlays. The render command produces `out/data-centres/why-neighbours-are-fighting-the-ai-boom-researched-text-2k.mp4`. The speech waveform, pitch and playback speed are unchanged by the text revision.
+Input props `{ "hooks": false }` disable the overlays. The render command produces `out/data-centres/why-neighbours-are-fighting-the-ai-boom-populated-world-2k.mp4`. The speech waveform, pitch and playback speed are unchanged by the visual revisions.
+
+## Populated environments
+
+The [background study](../../docs/shorts-background-research.md) records ten primary video examples, the scene plan and visual review. `environment.ts` adds connected streets, three depths of buildings, supporting residents, traffic and scene-specific infrastructure. The electricity scene uses a server hall and the planning scene uses a civic room. `world.ts` supplies continuous ground, moving character/shadow pairs and the main story objects. No external models or reference footage are needed to render these environments.
 
 The ready-to-render audio is `public/data-centres-natural/mix.mp3`; the builder generates both this compact asset and a local WAV master. Personal recordings and generated WAV intermediates are excluded from the public repository.
