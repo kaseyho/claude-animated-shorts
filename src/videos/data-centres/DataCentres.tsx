@@ -31,7 +31,8 @@ export const DataCentres:React.FC<Props>=({variant='original', subtitles, hooks}
   const {width,height}=useVideoConfig();
   const showSubtitles=subtitles ?? hooks ?? (variant === 'natural');
   return <AbsoluteFill style={{background:'#b9dce0'}}>
-    <ThreeCanvas width={width} height={height} gl={{antialias:true,powerPreference:'high-performance',toneMapping:THREE.ACESFilmicToneMapping,toneMappingExposure:1}} camera={{fov:38,near:.1,far:150}}>
+    {/* Nothing approaches within one world unit: preserve depth precision for thin roofs and details. */}
+    <ThreeCanvas width={width} height={height} gl={{antialias:true,powerPreference:'high-performance',toneMapping:THREE.ACESFilmicToneMapping,toneMappingExposure:1}} camera={{fov:38,near:1,far:150}}>
       <Scene variant={variant}/>
     </ThreeCanvas>
     <AbsoluteFill style={{pointerEvents:'none',background:'radial-gradient(ellipse at 50% 44%, transparent 45%, rgba(24,30,52,0.13) 100%)'}}/>

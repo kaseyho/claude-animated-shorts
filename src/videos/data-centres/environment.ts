@@ -7,8 +7,8 @@ const PALETTE = ['#c5b9a3', '#aebfc1', '#b8b0ba', '#cbb59d', '#a7b8a3', '#bcc6c8
 const trim = '#657e89';
 
 function sky(s: Stage) {
-  const horizon = new T.Color(s.background).lerp(new T.Color('#fff7e9'), s.id === 6 ? .03 : .17);
-  const zenith = new T.Color(s.background).multiplyScalar(s.id === 6 ? .65 : .84);
+  const horizon = new T.Color(s.background).lerp(new T.Color('#fff7e9'), .17);
+  const zenith = new T.Color(s.background).multiplyScalar(.84);
   const material = new T.ShaderMaterial({
     uniforms: { horizon: { value: horizon }, zenith: { value: zenith } },
     vertexShader: 'varying vec3 direction; void main(){direction=position;gl_Position=projectionMatrix*modelViewMatrix*vec4(position,1.0);}',
@@ -312,14 +312,14 @@ export function addEnvironment(s: Stage) {
   sky(s);
   if (s.id === 3) { serverHall(s); return; }
   if (s.id === 9) { meetingRoom(s); return; }
-  neighbourhood(s, s.id === 6);
+  neighbourhood(s);
   if (s.id === 2) construction(s);
   if (s.id === 4) substation(s);
   if (s.id === 5) coolingYard(s);
   if (s.id === 8) shops(s);
   if (s.id === 6) {
     fence(s, 3, -1.1, 4.2, 1.1);
-    lamp(s, -4.8, 2, true);
+    lamp(s, -4.8, 2, false);
     resident(s, -3.7, 2.5, 28);
   }
   if (s.id === 7) {

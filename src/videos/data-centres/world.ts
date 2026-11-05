@@ -21,8 +21,10 @@ export class Stage {
   background='#b9dce0';
   fog:T.Fog;
   constructor(public id:number) {
-    const hemi=new T.HemisphereLight(id===6?'#c2d1e6':'#fff6df','#8e8da8',id===6?1.15:2.1);
-    const sun=new T.DirectionalLight(id===6?'#b5c8e7':'#fff1db',id===6?1.4:3.1); sun.position.set(-10,18,12);
+    // All neighbourhood beats share daylight. The noise explanation previously
+    // jumped to night and back despite no change of time in the narration.
+    const hemi=new T.HemisphereLight('#fff6df','#8e8da8',2.1);
+    const sun=new T.DirectionalLight('#fff1db',3.1); sun.position.set(-10,18,12);
     this.root.add(hemi,sun);
     if (id===1) this.hook();
     if (id===2) this.buildout();
@@ -60,7 +62,7 @@ export class Stage {
   }
   cloud(x:number,y:number,z:number,s=1){const g=new T.Group();g.position.set(x,y,z);for(const [a,b,r] of [[-1,0,.8],[0,.4,1],[1,0,.7],[0,-.1,1]])this.sphere(a*s,b*s,0,r*s,'#fff9e8',g);this.root.add(g);this.updates.push((t)=>g.position.x=x+.12*Math.sin(t*.5+x));return g;}
   tree(x:number,z:number,s=1){this.rod([x,0,z],[x,2*s,z],.13*s,'#947860');this.sphere(x,2.2*s,z,.8*s,'#6c9e81');this.sphere(x-.3*s,1.8*s,z,.55*s,'#8eb58a');}
-  house(x:number,z:number,color=C.cream,s=1){const g=new T.Group();g.position.set(x,0,z);g.scale.setScalar(s);this.root.add(g);this.contactShadow(1.8,1.45,g);this.box(0,1,0,2.4,2,2,color,g);const roof=this.mesh(new T.ConeGeometry(1.95,1,4),C.coral,[0,2.5,0],g);roof.rotation.y=Math.PI/4;this.box(0,.6,1.02,.55,1.2,.08,C.navy,g);for(const a of [-.78,.78]){this.box(a,1.35,1.04,.47,.55,.08,this.id===6?'#f0d6a0':'#b9dee2',g);this.box(a,1.35,1.1,.035,.55,.02,C.cream,g,false);}return g;}
+  house(x:number,z:number,color=C.cream,s=1){const g=new T.Group();g.position.set(x,0,z);g.scale.setScalar(s);this.root.add(g);this.contactShadow(1.8,1.45,g);this.box(0,1,0,2.4,2,2,color,g);const roof=this.mesh(new T.ConeGeometry(1.95,1,4),C.coral,[0,2.5,0],g);roof.rotation.y=Math.PI/4;this.box(0,.6,1.02,.55,1.2,.08,C.navy,g);for(const a of [-.78,.78]){this.box(a,1.35,1.04,.47,.55,.08,'#b9dee2',g);this.box(a,1.35,1.1,.035,.55,.02,C.cream,g,false);}return g;}
   factory(x=0,z=-2,s=1){const g=new T.Group();g.position.set(x,0,z);g.scale.setScalar(s);this.root.add(g);this.contactShadow(3.65,2.25,g);this.box(0,1.65,0,6,3.3,3.3,'#bbc8c8',g);this.box(0,3.36,0,6.3,.22,3.6,C.navy,g);this.box(0,1.15,1.69,1.25,2.1,.08,C.navy,g);for(let j=0;j<7;j++){this.box(-2.55+j*.85,2.6,1.72,.52,.5,.08,C.blue,g);this.box(-2.7+j*.9,1.6,1.7,.06,2.95,.05,'#869ba8',g,false);}for(const a of [-2,0,2]){this.box(a,3.65,0,1.2,.45,1.15,'#8698a6',g);const fan=this.mesh(new T.CylinderGeometry(.43,.43,.03,16),C.dark,[a,3.89,0],g,false);for(let k=0;k<3;k++){const blade=this.box(0,.035,0,.7,.02,.14,'#a6bec4',fan,false);blade.rotation.y=k*Math.PI/3;}this.updates.push((t)=>fan.rotation.y=t*4);}return g;}
   rack(x:number,z:number,s=1){const g=new T.Group();g.position.set(x,0,z);g.scale.setScalar(s);this.root.add(g);this.box(0,1.75,0,1.6,3.5,1.2,C.navy,g);for(let j=0;j<8;j++){this.box(0,.3+j*.4,.63,1.32,.26,.07,'#718b9b',g);const led=this.box(.45,.3+j*.4,.69,.13,.07,.03,'#7af3c8',g,false);this.updates.push((t)=>{led.scale.x=.7+.3*Math.sin(t*4+j);});}return g;}
   actor(x:number,z:number,index=0,expr:Expr='nervous',height=3,options:ActorOptions={}){
@@ -93,12 +95,25 @@ export class Stage {
   drop(x:number,y:number,z:number,s=1,parent:T.Object3D=this.root){const g=new T.Group();g.position.set(x,y,z);g.scale.setScalar(s);parent.add(g);this.sphere(0,0,0,.4,'#4fbbd1',g);this.mesh(new T.ConeGeometry(.33,.65,20),'#4fbbd1',[0,.38,0],g,false);return g;}
   phone(x:number,y:number,z:number){const g=new T.Group();g.position.set(x,y,z);this.root.add(g);this.box(0,0,0,.68,1.15,.12,INK,g);this.box(0,0,.075,.55,.91,.02,'#c8f4f0',g,false);for(let k=0;k<3;k++){this.box(-.08+k*.07,.22-k*.22,.095,.31,.12,.02,[C.teal,C.coral,C.blue][k],g,false);}this.cloud(x,y+1.35,z,.22);return g;}
   hook(){this.background='#c4e2e6';this.platform();this.house(-4,-1);this.tree(4,2);this.actor(-.4,3.6,0,'neutral',3.4);this.phone(.65,2.3,3.8);const f=this.factory(0,-2,1.1);this.updates.push((t)=>{const q=ease((t-3.6)/1);f.position.y=-4.5*(1-q);});this.cloud(-3,6,-4,.8);this.cameraFrom=[4,5.2,18];this.cameraLook=[0,2,0];}
-  buildout(){this.background='#c3dfe5';this.platform();this.factory(0,-2);for(let i=0;i<3;i++){const f=this.factory(-3.7+i*3.7,2.4,.45);this.updates.push((t)=>{const q=ease((t-.5-i*.65)/.7);f.scale.y=.45*Math.max(.001,q);});}this.actor(-1.7,4.1,2,'shock',3.2);this.actor(1.1,4.1,1,'stern',2.9);this.cloud(-3,6,-4,.9);this.cameraFrom=[3,10,25];this.cameraLook=[0,1.8,0];}
+  buildout(){
+    this.background='#c3dfe5';this.platform();this.factory(0,-2);
+    for(let i=0;i<3;i++){
+      const f=this.factory(-3.7+i*3.7,2.4,.45);
+      this.updates.push((t)=>{
+        const q=ease((t-.5-i*.65)/.7);
+        // Hide waiting buildings and grow the whole model. Squashing only Y
+        // collapsed roof/fan faces into the same depth and caused white flicker.
+        f.visible=q>0;
+        f.scale.setScalar(.45*Math.max(.001,q));
+      });
+    }
+    this.actor(-1.7,4.1,2,'shock',3.2);this.actor(1.1,4.1,1,'stern',2.9);this.cloud(-3,6,-4,.9);this.cameraFrom=[3,10,25];this.cameraLook=[0,1.8,0];
+  }
   power(){this.background='#adcbd9';this.platform('#b3c8ca',6);for(const [x,z] of [[-2,0],[0,-1],[2,-2]])this.rack(x,z,.85);for(let i=0;i<8;i++){const b=this.bolt(-3+(i%4)*2,4+Math.floor(i/4)*1.5,0,.6);this.updates.push((t,u)=>{const q=i<4?1:ease((u-.43)*4);b.scale.setScalar(.6*q);b.position.y=4+Math.floor(i/4)*1.5+.12*Math.sin(t*2+i);});}this.actor(1.5,3,0,'shock',2.8);this.cameraFrom=[8,7,19];this.cameraLook=[0,2.6,0];}
   pylon(x:number,z:number){for(const a of [-1,1])this.rod([x+a*.8,0,z],[x+a*.25,5,z],.09,C.navy);for(let j=0;j<4;j++){this.rod([x-.75+j*.1,j*1.2,z],[x+.65-j*.1,(j+1)*1.2,z],.05,C.navy);this.rod([x+.75-j*.1,j*1.2,z],[x-.65+j*.1,(j+1)*1.2,z],.05,C.navy);}this.box(x,4.2,z,2.8,.15,.2,C.navy);}
   grid(){this.platform();this.house(-3,1);this.factory(2,-2,.7);this.pylon(-2,-2);this.pylon(3,2);for(const dx of [-.8,.8])this.rod([-2+dx,4.3,-2],[3+dx,4.3,2],.025,INK);this.actor(0,4,1,'nervous',3);for(let i=0;i<4;i++){const c=this.coin(-1.1+i*.7,3.5,4,.35);this.updates.push((t)=>{c.position.y=3.5+.13*Math.sin(t*2+i);c.rotation.z=t*.3;});}this.cameraFrom=[10,10,23];this.cameraLook=[0,2.1,0];}
   water(){this.background='#e7d4bb';this.platform('#d7c3a1');this.factory(2,-2,.7);const tank=this.mesh(new T.CylinderGeometry(1.3,1.3,2.7,32),'#88afba',[-2,1.35,0]);this.mesh(new T.CylinderGeometry(1.34,1.34,.15,32),C.navy,[-2,2.8,0]);this.rod([-2,1,0],[2,1,0],.18,C.blue);this.rod([2,1,0],[2,1,-2],.18,C.blue);for(let i=0;i<4;i++){const d=this.drop(-3.5+i*1.3,4.2,-.5,.7);this.updates.push((t)=>d.position.y=4.2+.18*Math.sin(t*1.7+i));}for(let i=0;i<3;i++){const pulse=this.sphere(0,1,.2,.11,'#b8eff4');this.updates.push((t)=>{pulse.position.x=-2+((t*.6+i/3)%1)*4;});}this.actor(0,3.7,2,'nervous',3.2);this.house(-4,-3,C.cream,.75);this.cameraFrom=[5,7,21];this.cameraLook=[0,2.2,0];}
-  noise(){this.background='#697e9f';this.platform('#83949a');this.house(-2,1,'#b8b7ce',1.3);this.factory(2,-3,.9);this.actor(-1,4,2,'stern',3.3);for(let i=0;i<3;i++){const m=new T.Mesh(new T.TorusGeometry(1+i*.5,.065,8,36,Math.PI*.8),mat('#df9365'));m.position.set(1,2.6,1.5);m.rotation.z=-Math.PI*.4;this.root.add(m);this.updates.push((t)=>{m.scale.setScalar(.8+((t*.5+i*.3)%1)*.6);(m.material as T.Material).transparent=true;(m.material as T.MeshLambertMaterial).opacity=.25+.55*(1-((t*.5+i*.3)%1));});}this.sphere(-3,7,-5,.55,'#f9e1b1');this.cameraFrom=[3,6.5,22];this.cameraLook=[0,2,0];}
+  noise(){this.background='#b9dce0';this.platform();this.house(-2,1,'#b8b7ce',1.3);this.factory(2,-3,.9);this.actor(-1,4,2,'stern',3.3);for(let i=0;i<3;i++){const m=new T.Mesh(new T.TorusGeometry(1+i*.5,.065,8,36,Math.PI*.8),mat('#df9365'));m.position.set(1,2.6,1.5);m.rotation.z=-Math.PI*.4;this.root.add(m);this.updates.push((t)=>{m.scale.setScalar(.8+((t*.5+i*.3)%1)*.6);(m.material as T.Material).transparent=true;(m.material as T.MeshLambertMaterial).opacity=.25+.55*(1-((t*.5+i*.3)%1));});}this.cameraFrom=[3,6.5,22];this.cameraLook=[0,2,0];}
   global(){this.background='#adcbd6';this.platform('#c3c5ad');this.factory(0,-3,.65);this.house(-4,-1,C.coral,.8);this.house(4,-1,C.cream,.8);for(let i=0;i<6;i++)this.actor((i%3-1)*2.1,1+Math.floor(i/3)*2.2,i,'stern',2.8);this.cloud(-3,6,-4,.8);this.cloud(3,6.5,-5,.7);this.cameraFrom=[4,8,21];this.cameraLook=[0,2,0];}
   benefits(){this.background='#c9dfdb';this.platform();this.factory(0,-2,.85);for(let i=0;i<4;i++){const c=this.coin(-2.4+i*1.6,4.5,-1,.5);this.updates.push((t)=>{c.rotation.z=.12*Math.sin(t+i);c.position.y=4.5+.15*Math.sin(t*2+i);});}this.actor(-1.4,3,3,'grin',3.2);this.actor(1.4,3,0,'neutral',3.2);this.phone(2.9,2.1,3);this.tree(-4,2);this.cameraFrom=[3,6.5,21];this.cameraLook=[0,2.2,0];}
   meeting(){this.background='#dfd9cb';this.platform('#c9c8b5',6);const table=this.mesh(new T.CylinderGeometry(2.05,2.05,.2,40),'#b98963',[0,1.6,0]);this.rod([0,0,0],[0,1.6,0],.5,C.navy);this.box(0,1.72,0,2.1,.02,1.6,'#d6e9e9');const model=this.factory(.3,-.1,.24);model.position.y=1.74;this.actor(-2.5,1.6,0,'neutral',3.3);this.actor(2.5,1.6,1,'neutral',3.3);this.actor(-1.3,-2.4,2,'grin',3.2);this.bolt(-1.5,4,0,.65);this.drop(0,4,0,.7);this.coin(1.5,4,0,.45);this.cameraFrom=[2.5,8,21];this.cameraLook=[0,2,0];}

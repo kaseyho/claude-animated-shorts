@@ -50,7 +50,7 @@ const stamp = (frame) => {
   return `${pad(Math.floor(ms / 3600000))}:${pad(Math.floor(ms / 60000) % 60)}:${pad(Math.floor(ms / 1000) % 60)},${pad(ms % 1000, 3)}`;
 };
 const outputs = {
-  'subtitles.json': JSON.stringify({fps, durationInFrames: timeline.durationInFrames, wordCount: words.length, cues}, null, 2) + '\n',
+  'subtitles.json': JSON.stringify({fps, durationInFrames: timeline.durationInFrames, wordCount: words.length, wordStarts: words.map(word => Math.round(word.s * fps)), cues}, null, 2) + '\n',
   'subtitles.srt': cues.map(cue => `${cue.id}\n${stamp(cue.from)} --> ${stamp(cue.to)}\n${cue.lines.join('\n')}\n`).join('\n'),
 };
 for (const [name, content] of Object.entries(outputs)) {

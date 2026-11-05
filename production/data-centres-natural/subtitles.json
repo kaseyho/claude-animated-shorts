@@ -2,33 +2,227 @@
   "fps": 30,
   "durationInFrames": 2167,
   "wordCount": 161,
+  "wordStarts": [
+    7,
+    8,
+    17,
+    25,
+    40,
+    59,
+    67,
+    68,
+    81,
+    88,
+    105,
+    114,
+    127,
+    149,
+    170,
+    174,
+    213,
+    221,
+    222,
+    236,
+    254,
+    263,
+    272,
+    298,
+    309,
+    330,
+    354,
+    364,
+    370,
+    411,
+    415,
+    439,
+    450,
+    465,
+    482,
+    498,
+    532,
+    551,
+    558,
+    572,
+    591,
+    597,
+    607,
+    634,
+    636,
+    644,
+    675,
+    678,
+    689,
+    691,
+    718,
+    722,
+    725,
+    733,
+    754,
+    756,
+    762,
+    774,
+    778,
+    785,
+    793,
+    803,
+    839,
+    845,
+    859,
+    874,
+    883,
+    904,
+    913,
+    915,
+    918,
+    940,
+    944,
+    974,
+    976,
+    986,
+    1003,
+    1009,
+    1048,
+    1057,
+    1067,
+    1076,
+    1094,
+    1102,
+    1115,
+    1136,
+    1141,
+    1156,
+    1177,
+    1182,
+    1186,
+    1222,
+    1225,
+    1241,
+    1245,
+    1257,
+    1286,
+    1302,
+    1305,
+    1322,
+    1337,
+    1347,
+    1354,
+    1373,
+    1376,
+    1379,
+    1415,
+    1418,
+    1442,
+    1449,
+    1462,
+    1475,
+    1488,
+    1521,
+    1535,
+    1547,
+    1551,
+    1574,
+    1577,
+    1590,
+    1616,
+    1622,
+    1633,
+    1644,
+    1674,
+    1677,
+    1684,
+    1691,
+    1694,
+    1719,
+    1737,
+    1752,
+    1778,
+    1787,
+    1816,
+    1824,
+    1851,
+    1855,
+    1871,
+    1888,
+    1899,
+    1913,
+    1949,
+    1951,
+    1972,
+    1975,
+    1979,
+    2007,
+    2011,
+    2022,
+    2044,
+    2047,
+    2049,
+    2064,
+    2076,
+    2084,
+    2105,
+    2113,
+    2116,
+    2120,
+    2121
+  ],
   "cues": [
     {
       "id": 1,
       "scene": 1,
       "from": 7,
-      "to": 53,
+      "to": 25,
       "firstWord": 0,
-      "lastWord": 4,
+      "lastWord": 2,
       "lines": [
-        "The cloud sounds",
-        "harmless, right?"
+        "The cloud sounds"
       ]
     },
     {
       "id": 2,
       "scene": 1,
-      "from": 59,
-      "to": 143,
-      "firstWord": 5,
-      "lastWord": 12,
+      "from": 25,
+      "to": 53,
+      "firstWord": 3,
+      "lastWord": 4,
       "lines": [
-        "Until a giant data centre",
-        "moves next door."
+        "harmless, right?"
       ]
     },
     {
       "id": 3,
+      "scene": 1,
+      "from": 59,
+      "to": 81,
+      "firstWord": 5,
+      "lastWord": 7,
+      "lines": [
+        "Until a giant"
+      ]
+    },
+    {
+      "id": 4,
+      "scene": 1,
+      "from": 81,
+      "to": 104,
+      "firstWord": 8,
+      "lastWord": 9,
+      "lines": [
+        "data centre"
+      ]
+    },
+    {
+      "id": 5,
+      "scene": 1,
+      "from": 105,
+      "to": 143,
+      "firstWord": 10,
+      "lastWord": 12,
+      "lines": [
+        "moves next door."
+      ]
+    },
+    {
+      "id": 6,
       "scene": 1,
       "from": 149,
       "to": 199,
@@ -39,7 +233,7 @@
       ]
     },
     {
-      "id": 4,
+      "id": 7,
       "scene": 2,
       "from": 213,
       "to": 254,
@@ -50,7 +244,7 @@
       ]
     },
     {
-      "id": 5,
+      "id": 8,
       "scene": 2,
       "from": 254,
       "to": 297,
@@ -61,19 +255,29 @@
       ]
     },
     {
-      "id": 6,
+      "id": 9,
       "scene": 2,
       "from": 298,
-      "to": 398,
+      "to": 353,
       "firstWord": 23,
+      "lastWord": 25,
+      "lines": [
+        "using land, power,"
+      ]
+    },
+    {
+      "id": 10,
+      "scene": 2,
+      "from": 354,
+      "to": 398,
+      "firstWord": 26,
       "lastWord": 28,
       "lines": [
-        "using land, power,",
         "and other resources."
       ]
     },
     {
-      "id": 7,
+      "id": 11,
       "scene": 3,
       "from": 411,
       "to": 465,
@@ -85,7 +289,7 @@
       ]
     },
     {
-      "id": 8,
+      "id": 12,
       "scene": 3,
       "from": 465,
       "to": 550,
@@ -97,7 +301,7 @@
       ]
     },
     {
-      "id": 9,
+      "id": 13,
       "scene": 3,
       "from": 551,
       "to": 588,
@@ -108,30 +312,42 @@
       ]
     },
     {
-      "id": 10,
+      "id": 14,
       "scene": 3,
       "from": 591,
-      "to": 661,
+      "to": 634,
       "firstWord": 40,
+      "lastWord": 42,
+      "lines": [
+        "from twenty",
+        "twenty-five"
+      ]
+    },
+    {
+      "id": 15,
+      "scene": 3,
+      "from": 634,
+      "to": 661,
+      "firstWord": 43,
       "lastWord": 45,
       "lines": [
-        "from twenty twenty-five",
         "to twenty thirty."
       ]
     },
     {
-      "id": 11,
+      "id": 16,
       "scene": 4,
       "from": 675,
       "to": 710,
       "firstWord": 46,
       "lastWord": 49,
       "lines": [
-        "So neighbours are asking:"
+        "So neighbours",
+        "are asking:"
       ]
     },
     {
-      "id": 12,
+      "id": 17,
       "scene": 4,
       "from": 718,
       "to": 748,
@@ -142,31 +358,52 @@
       ]
     },
     {
-      "id": 13,
+      "id": 18,
       "scene": 4,
       "from": 754,
-      "to": 826,
+      "to": 774,
       "firstWord": 54,
-      "lastWord": 61,
+      "lastWord": 56,
       "lines": [
-        "And who's paying",
-        "for those new power lines?"
+        "And who's paying"
       ]
     },
     {
-      "id": 14,
+      "id": 19,
+      "scene": 4,
+      "from": 774,
+      "to": 826,
+      "firstWord": 57,
+      "lastWord": 61,
+      "lines": [
+        "for those new",
+        "power lines?"
+      ]
+    },
+    {
+      "id": 20,
       "scene": 5,
       "from": 839,
-      "to": 902,
+      "to": 874,
       "firstWord": 62,
+      "lastWord": 64,
+      "lines": [
+        "Some cooling systems"
+      ]
+    },
+    {
+      "id": 21,
+      "scene": 5,
+      "from": 874,
+      "to": 902,
+      "firstWord": 65,
       "lastWord": 66,
       "lines": [
-        "Some cooling systems",
         "use water,"
       ]
     },
     {
-      "id": 15,
+      "id": 22,
       "scene": 5,
       "from": 904,
       "to": 967,
@@ -178,42 +415,65 @@
       ]
     },
     {
-      "id": 16,
+      "id": 23,
       "scene": 5,
       "from": 974,
-      "to": 1035,
+      "to": 1003,
       "firstWord": 73,
+      "lastWord": 75,
+      "lines": [
+        "In dry regions,"
+      ]
+    },
+    {
+      "id": 24,
+      "scene": 5,
+      "from": 1003,
+      "to": 1035,
+      "firstWord": 76,
       "lastWord": 77,
       "lines": [
-        "In dry regions,",
         "that matters."
       ]
     },
     {
-      "id": 17,
+      "id": 25,
       "scene": 6,
       "from": 1048,
       "to": 1094,
       "firstWord": 78,
       "lastWord": 81,
       "lines": [
-        "Others worry about noise"
+        "Others worry",
+        "about noise"
       ]
     },
     {
-      "id": 18,
+      "id": 26,
       "scene": 6,
       "from": 1094,
-      "to": 1177,
+      "to": 1136,
       "firstWord": 82,
-      "lastWord": 87,
+      "lastWord": 84,
       "lines": [
-        "from cooling equipment",
-        "and backup generators"
+        "from cooling",
+        "equipment"
       ]
     },
     {
-      "id": 19,
+      "id": 27,
+      "scene": 6,
+      "from": 1136,
+      "to": 1177,
+      "firstWord": 85,
+      "lastWord": 87,
+      "lines": [
+        "and backup",
+        "generators"
+      ]
+    },
+    {
+      "id": 28,
       "scene": 6,
       "from": 1177,
       "to": 1208,
@@ -224,134 +484,214 @@
       ]
     },
     {
-      "id": 20,
+      "id": 29,
       "scene": 7,
       "from": 1222,
-      "to": 1281,
+      "to": 1241,
       "firstWord": 91,
+      "lastWord": 92,
+      "lines": [
+        "From Mexico"
+      ]
+    },
+    {
+      "id": 30,
+      "scene": 7,
+      "from": 1241,
+      "to": 1281,
+      "firstWord": 93,
       "lastWord": 95,
       "lines": [
-        "From Mexico",
         "to South Africa,"
       ]
     },
     {
-      "id": 21,
+      "id": 31,
       "scene": 7,
       "from": 1286,
-      "to": 1347,
+      "to": 1322,
       "firstWord": 96,
+      "lastWord": 98,
+      "lines": [
+        "communities",
+        "have demanded"
+      ]
+    },
+    {
+      "id": 32,
+      "scene": 7,
+      "from": 1322,
+      "to": 1347,
+      "firstWord": 99,
       "lastWord": 100,
       "lines": [
-        "communities have demanded",
         "clearer answers"
       ]
     },
     {
-      "id": 22,
+      "id": 33,
       "scene": 7,
       "from": 1347,
-      "to": 1403,
+      "to": 1373,
       "firstWord": 101,
+      "lastWord": 102,
+      "lines": [
+        "about projects"
+      ]
+    },
+    {
+      "id": 34,
+      "scene": 7,
+      "from": 1373,
+      "to": 1403,
+      "firstWord": 103,
       "lastWord": 105,
       "lines": [
-        "about projects",
         "on their doorstep."
       ]
     },
     {
-      "id": 23,
+      "id": 35,
       "scene": 8,
       "from": 1415,
-      "to": 1514,
+      "to": 1462,
       "firstWord": 106,
+      "lastWord": 109,
+      "lines": [
+        "Of course,",
+        "data centres"
+      ]
+    },
+    {
+      "id": 36,
+      "scene": 8,
+      "from": 1462,
+      "to": 1514,
+      "firstWord": 110,
       "lastWord": 112,
       "lines": [
-        "Of course, data centres",
         "run useful services."
       ]
     },
     {
-      "id": 24,
+      "id": 37,
       "scene": 8,
       "from": 1521,
-      "to": 1609,
+      "to": 1551,
       "firstWord": 113,
-      "lastWord": 119,
+      "lastWord": 115,
       "lines": [
-        "Supporters point to",
-        "investment and tax revenue."
+        "Supporters point to"
       ]
     },
     {
-      "id": 25,
+      "id": 38,
+      "scene": 8,
+      "from": 1551,
+      "to": 1609,
+      "firstWord": 116,
+      "lastWord": 119,
+      "lines": [
+        "investment and",
+        "tax revenue."
+      ]
+    },
+    {
+      "id": 39,
       "scene": 8,
       "from": 1616,
       "to": 1660,
       "firstWord": 120,
       "lastWord": 123,
       "lines": [
-        "Those benefits matter, too."
+        "Those benefits",
+        "matter, too."
       ]
     },
     {
-      "id": 26,
+      "id": 40,
       "scene": 9,
       "from": 1674,
       "to": 1712,
       "firstWord": 124,
       "lastWord": 128,
       "lines": [
-        "But so does the deal:"
+        "But so does",
+        "the deal:"
       ]
     },
     {
-      "id": 27,
+      "id": 41,
       "scene": 9,
       "from": 1719,
       "to": 1771,
       "firstWord": 129,
       "lastWord": 131,
       "lines": [
-        "transparent resource use,"
+        "transparent",
+        "resource use,"
       ]
     },
     {
-      "id": 28,
+      "id": 42,
       "scene": 9,
       "from": 1778,
-      "to": 1849,
+      "to": 1815,
       "firstWord": 132,
+      "lastWord": 133,
+      "lines": [
+        "noise controls,"
+      ]
+    },
+    {
+      "id": 43,
+      "scene": 9,
+      "from": 1816,
+      "to": 1849,
+      "firstWord": 134,
       "lastWord": 135,
       "lines": [
-        "noise controls, fair costs,"
+        "fair costs,"
       ]
     },
     {
-      "id": 29,
+      "id": 44,
       "scene": 9,
       "from": 1851,
-      "to": 1935,
+      "to": 1888,
       "firstWord": 136,
-      "lastWord": 141,
+      "lastWord": 138,
       "lines": [
-        "and residents involved",
-        "before construction starts."
+        "and residents",
+        "involved"
       ]
     },
     {
-      "id": 30,
+      "id": 45,
+      "scene": 9,
+      "from": 1888,
+      "to": 1935,
+      "firstWord": 139,
+      "lastWord": 141,
+      "lines": [
+        "before construction",
+        "starts."
+      ]
+    },
+    {
+      "id": 46,
       "scene": 10,
       "from": 1949,
       "to": 2000,
       "firstWord": 142,
       "lastWord": 146,
       "lines": [
-        "The cloud may be global."
+        "The cloud may",
+        "be global."
       ]
     },
     {
-      "id": 31,
+      "id": 47,
       "scene": 10,
       "from": 2007,
       "to": 2037,
@@ -362,26 +702,37 @@
       ]
     },
     {
-      "id": 32,
+      "id": 48,
       "scene": 10,
       "from": 2044,
-      "to": 2099,
+      "to": 2064,
       "firstWord": 150,
+      "lastWord": 152,
+      "lines": [
+        "If the future's"
+      ]
+    },
+    {
+      "id": 49,
+      "scene": 10,
+      "from": 2064,
+      "to": 2099,
+      "firstWord": 153,
       "lastWord": 155,
       "lines": [
-        "If the future's",
         "moving next door,"
       ]
     },
     {
-      "id": 33,
+      "id": 50,
       "scene": 10,
       "from": 2105,
       "to": 2140,
       "firstWord": 156,
       "lastWord": 160,
       "lines": [
-        "shouldn't they get a say?"
+        "shouldn't they",
+        "get a say?"
       ]
     }
   ]

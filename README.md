@@ -41,17 +41,19 @@ The full scene is expensive to render. Video scripts default to one concurrent r
 
 ## Data-centre example: expressive narration and synchronized subtitles
 
-The fork includes an original data-centre explainer alongside the bridge template. Its latest version uses a conversational synthetic narrator at native speed and pitch, with scene timings following the speech. Plain white outlined subtitles reproduce all 161 script words, including punctuation, in 33 short phrases synchronized to the narration. They replace the earlier editorial clickbait overlays.
+The fork includes an original data-centre explainer alongside the bridge template. Its latest version uses a conversational synthetic narrator at native speed and pitch, with scene timings following the speech. Larger boxed subtitles reproduce all 161 script words, including punctuation, in 50 short phrases. A yellow highlight follows the currently spoken word; each compact dark box settles after a four-frame entrance.
 
-The [subtitle specification](production/data-centres-natural/SUBTITLES.md) documents the current wording, timing and layout. The earlier [text research](docs/shorts-text-research.md) remains available as a record of the previous treatment.
+The [refreshed caption study](docs/shorts-boxed-caption-research.md) compares actual Shorts from four creators at eleven sampled moments, with primary links and editing steps. The [subtitle specification](production/data-centres-natural/SUBTITLES.md) documents the current wording, timing and layout. The earlier [text research](docs/shorts-text-research.md) remains available as a record of the previous treatment.
 
 The [background research and production specification](docs/shorts-background-research.md) examines ten animated Shorts. The latest render replaces the isolated platforms with connected streets, layered neighbourhoods, supporting residents and traffic, construction/service detail, a server hall and a civic meeting room. Background animation is deterministic and all scenery is generated locally.
+
+The [lighting fix and verification steps](docs/data-centres-lighting-fix.md) explain the flashing construction roofs: flattening buildings made surfaces overlap in the depth buffer. Buildings now grow uniformly, the camera uses a better near plane, and the noise scene keeps daylight continuity. The guide includes targeted frame inspection because whole-frame averages missed the small roof defect.
 
 ```sh
 npm run render:data-centres:natural
 ```
 
-This renders `DataCentresNatural` as a 72.2-second 1440×2560 video to `out/data-centres/why-neighbours-are-fighting-the-ai-boom-subtitled-2k.mp4`. The ready-to-render synthetic soundtrack is bundled as `public/data-centres-natural/mix.mp3`. No speech-service account or API key is needed to render it.
+This renders `DataCentresNatural` as a 72.2-second 1440×2560 video to `out/data-centres/why-neighbours-are-fighting-the-ai-boom-boxed-captions-2k.mp4`. The ready-to-render synthetic soundtrack is bundled as `public/data-centres-natural/mix.mp3`. No speech-service account or API key is needed to render it.
 
 - Edit line and phrase breaks in `production/data-centres-natural/subtitle-phrases.json`, then run `npm run subtitles:data-centres`. The builder checks the complete script against `timeline.json` and native `words.json` timings. The render command checks for stale subtitle files before starting.
 - The generated `production/data-centres-natural/subtitles.srt` contains the same wording and frame-rounded timing as the burned-in subtitles. Typography and placement live in `src/videos/data-centres/Subtitles.tsx`.

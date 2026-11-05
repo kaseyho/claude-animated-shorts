@@ -20,14 +20,16 @@ Initial speech synthesis requires internet. Exact text, native word timings, sce
 
 ## Synchronized script subtitles
 
-`DataCentresNatural` now displays the complete spoken script in plain white outlined subtitles. All 161 words, with their original punctuation, are grouped into 33 phrases. Each phrase starts at its first spoken word and ends shortly after its last word, before the next phrase or scene cut. This replaces the previous clickbait text entirely.
+`DataCentresNatural` displays the complete spoken script in punchier boxed subtitles. All 161 words, with their original punctuation, are grouped into 50 phrases. Each phrase starts at its first spoken word and ends shortly after its last word, before the next phrase or scene cut. Larger white type sits on a compact dark backing, with a yellow highlight following the spoken word and a four-frame entrance. The [refreshed study](../../docs/shorts-boxed-caption-research.md) records the creator references and design decisions.
 
 The [subtitle specification](SUBTITLES.md) describes the exact timing and layout. Edit phrase and line breaks in `subtitle-phrases.json`, then run `npm run subtitles:data-centres` to generate `subtitles.json` and the standalone `subtitles.srt`. The builder validates every word against `timeline.json` and `words.json`; the render command checks both generated files for drift. Rebuilding audio also regenerates subtitles, and fails if edited phrase text no longer matches the script. `Subtitles.tsx` handles the bundled font and steady lower-frame placement.
 
-Input props `{ "subtitles": false }` disable subtitles. The legacy `{ "hooks": false }` alias remains supported; explicit `subtitles` takes precedence. The render command produces `out/data-centres/why-neighbours-are-fighting-the-ai-boom-subtitled-2k.mp4`. The speech waveform, pitch, playback speed and populated environments are unchanged by this subtitle revision. The [earlier text study](../../docs/shorts-text-research.md) remains a historical research record.
+Input props `{ "subtitles": false }` disable subtitles. The legacy `{ "hooks": false }` alias remains supported; explicit `subtitles` takes precedence. The render command produces `out/data-centres/why-neighbours-are-fighting-the-ai-boom-boxed-captions-2k.mp4`. The speech waveform, pitch and playback speed are unchanged. The [earlier text study](../../docs/shorts-text-research.md) remains a historical research record.
 
 ## Populated environments
 
 The [background study](../../docs/shorts-background-research.md) records ten primary video examples, the scene plan and visual review. `environment.ts` adds connected streets, three depths of buildings, supporting residents, traffic and scene-specific infrastructure. The electricity scene uses a server hall and the planning scene uses a civic room. `world.ts` supplies continuous ground, moving character/shadow pairs and the main story objects. No external models or reference footage are needed to render these environments.
+
+The [lighting troubleshooting guide](../../docs/data-centres-lighting-fix.md) documents the corrected roof flicker, camera depth precision and daytime continuity. When changing geometry or cameras, inspect consecutive full-resolution crops of small surfaces as well as the overall picture.
 
 The ready-to-render audio is `public/data-centres-natural/mix.mp3`; the builder generates both this compact asset and a local WAV master. Personal recordings and generated WAV intermediates are excluded from the public repository.

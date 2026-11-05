@@ -22,7 +22,7 @@
     "render:data-centres": "remotion render src/index.ts DataCentres out/data-centres/the-cloud-has-a-neighbour-problem-2k.mp4 --codec=h264 --crf=18 --scale=1.3333333333333333 --concurrency=3 --gl=angle --audio-codec=aac",
     "render:data-centres:energetic": "remotion render src/index.ts DataCentresEnergetic out/data-centres/why-neighbours-are-fighting-the-ai-boom-2k.mp4 --codec=h264 --crf=18 --scale=1.3333333333333333 --concurrency=3 --gl=angle --audio-codec=aac",
     "prerender:data-centres:natural": "npm run subtitles:check",
-    "render:data-centres:natural": "remotion render src/index.ts DataCentresNatural out/data-centres/why-neighbours-are-fighting-the-ai-boom-subtitled-2k.mp4 --codec=h264 --crf=18 --scale=1.3333333333333333 --concurrency=3 --gl=angle --audio-codec=aac"
+    "render:data-centres:natural": "remotion render src/index.ts DataCentresNatural out/data-centres/why-neighbours-are-fighting-the-ai-boom-boxed-captions-2k.mp4 --codec=h264 --crf=18 --scale=1.3333333333333333 --concurrency=3 --gl=angle --audio-codec=aac"
   },
   "dependencies": {
     "@react-three/fiber": "8.18.0",
