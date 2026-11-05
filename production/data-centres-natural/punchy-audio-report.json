@@ -1,0 +1,253 @@
+{
+  "description": "Original word-timed accents and restrained rhythm; unchanged native narration timing and pitch",
+  "seed": 81704,
+  "bpm": 104,
+  "durationSeconds": 72.23333333333333,
+  "sourceVoiceSha256": "14a658702d681375045071c6e33be6433d8d5e3d4ff1f44ea432e0914a13abfa",
+  "sourceTimelineSha256": "4e3e9da7be962b28c639a89582c2f238d2f88a6fb641e8baf3b134de34802200",
+  "sourceWordsSha256": "f3dcca7b57d8ac3b1b8fc7218cccf1b7dc6e20386ac07f9546cbb98d5d70a535",
+  "voiceTempoFactor": 1.0,
+  "voicePitchChangeHz": 0,
+  "voiceEdit": "No editing, stretching, resynthesis or pitch change; final mix mastering only",
+  "voiceSamples": 3467200,
+  "sampleRate": 48000,
+  "cues": [
+    {
+      "phrase": "cloud sounds",
+      "time": 0.2825,
+      "kind": "click",
+      "gain": 0.025,
+      "pan": -0.15,
+      "source": "measured words.json"
+    },
+    {
+      "phrase": "Until",
+      "time": 1.9825,
+      "kind": "brush",
+      "gain": 0.065,
+      "pan": -0.2,
+      "source": "measured words.json"
+    },
+    {
+      "phrase": "moves next door",
+      "time": 3.5075,
+      "kind": "reveal",
+      "gain": 0.13,
+      "pan": 0.12,
+      "source": "measured words.json"
+    },
+    {
+      "phrase": "personal",
+      "time": 5.8075,
+      "kind": "click",
+      "gain": 0.035,
+      "pan": -0.1,
+      "source": "measured words.json"
+    },
+    {
+      "phrase": "real buildings",
+      "time": 8.7635,
+      "kind": "reveal",
+      "gain": 0.065,
+      "pan": 0.1,
+      "source": "measured words.json"
+    },
+    {
+      "phrase": "land",
+      "time": 10.301,
+      "kind": "click",
+      "gain": 0.024,
+      "pan": -0.25,
+      "source": "measured words.json"
+    },
+    {
+      "phrase": "power and",
+      "time": 11.0135,
+      "kind": "click",
+      "gain": 0.026,
+      "pan": 0.25,
+      "source": "measured words.json"
+    },
+    {
+      "phrase": "roughly double",
+      "time": 19.0535,
+      "kind": "rise",
+      "gain": 0.04,
+      "pan": 0.05,
+      "source": "measured words.json"
+    },
+    {
+      "phrase": "grid cope",
+      "time": 24.167,
+      "kind": "brush",
+      "gain": 0.055,
+      "pan": -0.2,
+      "source": "measured words.json"
+    },
+    {
+      "phrase": "paying",
+      "time": 25.4045,
+      "kind": "click",
+      "gain": 0.032,
+      "pan": 0.2,
+      "source": "measured words.json"
+    },
+    {
+      "phrase": "use water",
+      "time": 29.4175,
+      "kind": "drop",
+      "gain": 0.045,
+      "pan": -0.2,
+      "source": "measured words.json"
+    },
+    {
+      "phrase": "design and location",
+      "time": 30.605,
+      "kind": "click",
+      "gain": 0.025,
+      "pan": 0.18,
+      "source": "measured words.json"
+    },
+    {
+      "phrase": "demanded clearer answers",
+      "time": 43.4955,
+      "kind": "brush",
+      "gain": 0.055,
+      "pan": -0.15,
+      "source": "measured words.json"
+    },
+    {
+      "phrase": "useful services",
+      "time": 49.18,
+      "kind": "rise",
+      "gain": 0.028,
+      "pan": 0.16,
+      "source": "measured words.json"
+    },
+    {
+      "phrase": "investment",
+      "time": 51.6925,
+      "kind": "click",
+      "gain": 0.028,
+      "pan": -0.2,
+      "source": "measured words.json"
+    },
+    {
+      "phrase": "tax revenue",
+      "time": 52.5675,
+      "kind": "click",
+      "gain": 0.024,
+      "pan": 0.2,
+      "source": "measured words.json"
+    },
+    {
+      "phrase": "the deal",
+      "time": 56.3755,
+      "kind": "brush",
+      "gain": 0.055,
+      "pan": 0,
+      "source": "measured words.json"
+    },
+    {
+      "phrase": "transparent",
+      "time": 57.313,
+      "kind": "click",
+      "gain": 0.031,
+      "pan": -0.2,
+      "source": "measured words.json"
+    },
+    {
+      "phrase": "noise controls",
+      "time": 59.2505,
+      "kind": "click",
+      "gain": 0.031,
+      "pan": -0.07,
+      "source": "measured words.json"
+    },
+    {
+      "phrase": "fair costs",
+      "time": 60.5255,
+      "kind": "click",
+      "gain": 0.031,
+      "pan": 0.07,
+      "source": "measured words.json"
+    },
+    {
+      "phrase": "residents involved",
+      "time": 61.838,
+      "kind": "click",
+      "gain": 0.031,
+      "pan": 0.2,
+      "source": "measured words.json"
+    },
+    {
+      "phrase": "neighbours aren't",
+      "time": 67.0355,
+      "kind": "brush",
+      "gain": 0.045,
+      "pan": -0.15,
+      "source": "measured words.json"
+    },
+    {
+      "phrase": "a say",
+      "time": 70.698,
+      "kind": "rise",
+      "gain": 0.035,
+      "pan": 0.1,
+      "source": "measured words.json"
+    },
+    {
+      "phrase": "noise from ... homes",
+      "time": 35.881,
+      "end": 39.831,
+      "kind": "illustrative equipment hum",
+      "gain": 0.009
+    }
+  ],
+  "decodedOutputSamples": 3467200,
+  "decodedOutputDurationSeconds": 72.23333333333333,
+  "premixVoiceToBackingDbDuringSpeech": 15.57,
+  "premixAnalysis": {
+    "input_i": "-18.49",
+    "input_tp": "-2.83",
+    "input_lra": "3.70",
+    "input_thresh": "-28.95",
+    "output_i": "-16.31",
+    "output_tp": "-1.56",
+    "output_lra": "3.50",
+    "output_thresh": "-26.74",
+    "normalization_type": "dynamic",
+    "target_offset": "0.31"
+  },
+  "mastering": {
+    "input_i": "-18.49",
+    "input_tp": "-2.83",
+    "input_lra": "3.70",
+    "input_thresh": "-28.95",
+    "output_i": "-16.00",
+    "output_tp": "-1.50",
+    "output_lra": "3.50",
+    "output_thresh": "-26.43",
+    "normalization_type": "dynamic",
+    "target_offset": "-0.00"
+  },
+  "encodedMeasuredLUFS": -16.07,
+  "encodedMeasuredTruePeakDbTP": -1.48,
+  "encodedMeasuredLRA": 3.6,
+  "ffprobe": {
+    "programs": [],
+    "stream_groups": [],
+    "streams": [
+      {
+        "codec_name": "mp3",
+        "sample_rate": "48000",
+        "channels": 2
+      }
+    ],
+    "format": {
+      "duration": "72.233333"
+    }
+  },
+  "output": "public/data-centres-natural/punchy-mix.mp3",
+  "qa": "Duration and loudness verified; review final film for cue/visual fit. Effects are illustrative synthesis, not field recordings."
+}

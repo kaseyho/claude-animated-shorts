@@ -1,6 +1,6 @@
 # Boxed script subtitles
 
-Updated 5 November 2026. The full spoken script remains synchronized to the voice; the latest treatment adds larger type, compact dark boxes and speech-timed yellow emphasis. See the [fresh creator study](../../docs/shorts-boxed-caption-research.md) for references and the [lighting repair guide](../../docs/data-centres-lighting-fix.md) for the accompanying roof-flicker fix. Narration, pitch, playback speed, music and scene timings remain unchanged.
+Updated 5 November 2026. The full spoken script remains synchronized to the voice; the latest treatment adds larger type, compact dark boxes and speech-timed yellow emphasis. See the [fresh creator study](../../docs/shorts-boxed-caption-research.md) for references and the [lighting repair guide](../../docs/data-centres-lighting-fix.md) for the accompanying roof-flicker fix. The later [punchier picture and sound pass](PUNCHY_EDIT.md) retains the narration, pitch, playback speed, subtitle wording and scene boundaries while adding new action, camera beats and a revised backing mix.
 
 ## Wording and timing
 
@@ -15,7 +15,7 @@ Updated 5 November 2026. The full spoken script remains synchronized to the voic
 
 At the 1080×1920 composition size, use bundled Barlow Condensed ExtraBold at 92 px with line height 1.08. White text sits on an opaque `#11151e` box; the spoken word is `#ffe14a`. The box has 30 px horizontal padding, 17 px top padding, 20 px bottom padding, 16 px corners and a small downward shadow.
 
-The reading area has 70 px left and 150 px right margins and ends 350 px above the bottom. Each box fits its text rather than spanning the entire area. The box is fully visible from the cue's first frame and scales from 96% to 100% over four frames, then holds steady. It never changes font size or word spacing during highlighting. The local font loads before rendering.
+The reading area has 70 px left and 150 px right margins and ends 350 px above the bottom. Each box fits its text rather than spanning the entire area. The box is fully visible from the cue's first frame and scales from 91% to 102.5% at frame 3, then settles to 100% at frame 6 and holds steady. It never changes font size or word spacing during highlighting. The local font loads before rendering.
 
 Subtitles are enabled by default only for `DataCentresNatural`; the other narrations have different scripts and timings. `{ "subtitles": false }` disables them. The earlier `{ "hooks": false }` alias remains supported, and an explicit `subtitles` value takes precedence.
 
@@ -25,7 +25,7 @@ Subtitles are enabled by default only for `DataCentresNatural`; the other narrat
 
 1. Edit the phrase and line breaks in `subtitle-phrases.json`. Preserve every word and its punctuation from `timeline.json`.
 2. Run the commands below to regenerate both subtitle formats, check consistency and render the full video.
-3. Review the opening, longest line, agency name, date range, noise scene and closing question at phone size. Check the four-frame entrance and word highlights in motion.
+3. Review the opening, longest line, agency name, date range, noise scene and closing question at phone size. Check the six-frame entrance and word highlights in motion.
 4. Follow the localized roof checks in the lighting guide as well as full-frame QA. Caption changes can legitimately trigger image-difference flags, and whole-frame averages can miss small surface flicker.
 
 ```sh
@@ -34,14 +34,16 @@ npm run subtitles:check
 npm run typecheck
 npm run render:data-centres:natural
 .venv/bin/python templates/scripts/short_qa.py \
-  out/data-centres/why-neighbours-are-fighting-the-ai-boom-boxed-captions-2k.mp4 \
-  out/data-centres/boxed-qa \
+  out/data-centres/why-neighbours-are-fighting-the-ai-boom-punchy-2k.mp4 \
+  out/data-centres/punchy-qa \
   production/data-centres-natural/shots.json
 ```
 
 The generator verifies exact transcript coverage, ordered word timestamps, scene containment and non-overlapping cues. The render script runs the freshness check automatically. If narration changes, rebuild its word timings and scene timeline, update phrase groups to match the new script, and regenerate subtitles. The audio builder also calls the subtitle generator. Keep the generated JSON and SRT together in commits.
 
-## Completed verification
+## Earlier boxed-caption verification
+
+These results describe the previous boxed-caption export. Current picture, motion and audio checks are recorded in [PUNCHY_EDIT.md](PUNCHY_EDIT.md).
 
 - TypeScript, generated-file freshness and exact transcript checks pass. All 161 words appear once across 50 ordered cues; JSON and SRT agree. Every highlight start matches its native word time rounded to a frame, with a maximum rounding error of 16.33 ms. The shortest cue lasts 0.6 seconds; two shorter candidate fragments were merged before rendering.
 - Every line fits the 860 px reading area. The widest box, including padding, measures approximately 849 px. Fifteen representative frames were visually reviewed, covering all ten shots, long lines and the new word highlights.

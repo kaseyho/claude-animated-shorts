@@ -21,7 +21,8 @@ export const Subtitles: React.FC = () => {
     else break;
   }
   let wordIndex = cue.firstWord;
-  const scale = interpolate(frame - cue.from, [0, 4], [0.96, 1], {
+  // A brief settle gives the phrase an accent without shaking readable words.
+  const scale = interpolate(frame - cue.from, [0, 3, 6], [0.91, 1.025, 1], {
     extrapolateLeft: 'clamp', extrapolateRight: 'clamp',
   });
 

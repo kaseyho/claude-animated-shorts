@@ -1,5 +1,7 @@
 # Roof flicker and lighting continuity
 
+**Historical verification:** the measurements and crop coordinates below describe the boxed-caption export at [commit 787fb8b](https://github.com/kaseyho/claude-animated-shorts/commit/787fb8b3147119a16c3bafc6115ff227f8ff5682). The current [punchier edit](../production/data-centres-natural/PUNCHY_EDIT.md) preserves the fix but changes camera views. Use that guide for current rendering and checks; reproduce the exact old crops from the historical checkout, not the new camera paths.
+
 Diagnosis and verification, 5 November 2026. This accompanies the [boxed subtitle revision](shorts-boxed-caption-research.md). The targeted checks below cover the construction shot and representative scene frames; the final combined export was subsequently checked as recorded below and in the [subtitle production notes](../production/data-centres-natural/SUBTITLES.md).
 
 ## What was actually wrong

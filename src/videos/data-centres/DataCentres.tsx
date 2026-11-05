@@ -32,11 +32,11 @@ export const DataCentres:React.FC<Props>=({variant='original', subtitles, hooks}
   const showSubtitles=subtitles ?? hooks ?? (variant === 'natural');
   return <AbsoluteFill style={{background:'#b9dce0'}}>
     {/* Nothing approaches within one world unit: preserve depth precision for thin roofs and details. */}
-    <ThreeCanvas width={width} height={height} gl={{antialias:true,powerPreference:'high-performance',toneMapping:THREE.ACESFilmicToneMapping,toneMappingExposure:1}} camera={{fov:38,near:1,far:150}}>
+    <ThreeCanvas width={width} height={height} gl={{antialias:true,powerPreference:'high-performance',toneMapping:THREE.ACESFilmicToneMapping,toneMappingExposure:variant === 'natural' ? .94 : 1}} camera={{fov:38,near:1,far:150}}>
       <Scene variant={variant}/>
     </ThreeCanvas>
     <AbsoluteFill style={{pointerEvents:'none',background:'radial-gradient(ellipse at 50% 44%, transparent 45%, rgba(24,30,52,0.13) 100%)'}}/>
     {showSubtitles && variant === 'natural' && <Subtitles/>}
-    <Audio src={staticFile(variant === 'natural' ? 'data-centres-natural/mix.mp3' : variant === 'energetic' ? 'data-centres-energetic/mix.mp3' : 'data-centres/mix.mp3')}/>
+    <Audio src={staticFile(variant === 'natural' ? 'data-centres-natural/punchy-mix.mp3' : variant === 'energetic' ? 'data-centres-energetic/mix.mp3' : 'data-centres/mix.mp3')}/>
   </AbsoluteFill>;
 };

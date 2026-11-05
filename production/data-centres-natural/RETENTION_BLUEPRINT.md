@@ -2,6 +2,8 @@
 
 **Status: proposed editorial application, not rendered.** This applies the [Shorts playbook](../../docs/shorts-playbook.md) to the existing topic. It does not replace the current 161-word narration, 72.23-second timeline, 50 subtitle cues or boxed-caption video. No audience-retention result is claimed. Use the [measurement guide](../../docs/research/shorts-measurement.md) after a future publication.
 
+The later [punchier visual and sound edit](PUNCHY_EDIT.md) applies shot variation, visible background action and speech-timed emphasis to the existing narration. The alternative hooks and script restructuring below remain proposed.
+
 ## Promise and story question
 
 **Viewer:** someone who uses digital services but has not considered the physical infrastructure near homes.

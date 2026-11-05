@@ -14,7 +14,7 @@ The [production playbook](docs/shorts-playbook.md) turns research into a workflo
 - [Creator evidence](docs/research/shorts-creator-evidence.md): seven interview, platform and firsthand sources, separating observations from production inferences.
 - [Production brief](templates/SHORTS_BRIEF.md) and [beat sheet](templates/SHORTS_BEAT_SHEET.md): copy these for each new Short, then follow [SKILL.md](SKILL.md) for implementation.
 - [Measurement guide](docs/research/shorts-measurement.md): current analytics definitions and a practical experiment log. Public views do not prove which editing choice worked.
-- [Data-centre application](production/data-centres-natural/RETENTION_BLUEPRINT.md): original hook options and an asset-aware beat plan, explicitly proposed and not yet rendered. The current boxed-caption film remains available below.
+- [Data-centre application](production/data-centres-natural/RETENTION_BLUEPRINT.md): original hook options and an asset-aware beat plan, explicitly proposed and not yet rendered. Its proposed script restructuring remains unrendered; the new picture/sound pass below applies the visual editing principles to the existing narration.
 
 The research adapts storytelling mechanics into original scripts and scenes. The active workflow no longer treats fixed speech speed, mandatory flashes, constant camera movement or a fixed music boost as universal rules.
 
@@ -53,7 +53,7 @@ The full scene is expensive to render. Video scripts default to one concurrent r
 
 ## Data-centre example: expressive narration and synchronized subtitles
 
-The fork includes an original data-centre explainer alongside the bridge template. Its latest version uses a conversational synthetic narrator at native speed and pitch, with scene timings following the speech. Larger boxed subtitles reproduce all 161 script words, including punctuation, in 50 short phrases. A yellow highlight follows the currently spoken word; each compact dark box settles after a four-frame entrance.
+The fork includes an original data-centre explainer alongside the bridge template. Its latest version uses a conversational synthetic narrator at native speed and pitch, with scene timings following the speech. Larger boxed subtitles reproduce all 161 script words, including punctuation, in 50 short phrases. A yellow highlight follows the currently spoken word; each compact dark box settles after a six-frame entrance. The [latest visual and sound pass](production/data-centres-natural/PUNCHY_EDIT.md) adds speech-timed close-ups, changing reactions, active street traffic, working construction equipment and more populated interiors.
 
 The [refreshed caption study](docs/shorts-boxed-caption-research.md) compares actual Shorts from four creators at eleven sampled moments, with primary links and editing steps. The [subtitle specification](production/data-centres-natural/SUBTITLES.md) documents the current wording, timing and layout. The earlier [text research](docs/shorts-text-research.md) remains available as a record of the previous treatment.
 
@@ -65,7 +65,7 @@ The [lighting fix and verification steps](docs/data-centres-lighting-fix.md) exp
 npm run render:data-centres:natural
 ```
 
-This renders `DataCentresNatural` as a 72.2-second 1440×2560 video to `out/data-centres/why-neighbours-are-fighting-the-ai-boom-boxed-captions-2k.mp4`. The ready-to-render synthetic soundtrack is bundled as `public/data-centres-natural/mix.mp3`. No speech-service account or API key is needed to render it.
+This renders `DataCentresNatural` as a 72.2-second 1440×2560 video to `out/data-centres/why-neighbours-are-fighting-the-ai-boom-punchy-2k.mp4`. The current ready-to-render synthetic soundtrack is bundled as `public/data-centres-natural/punchy-mix.mp3`. No speech-service account or API key is needed to render it.
 
 - Edit line and phrase breaks in `production/data-centres-natural/subtitle-phrases.json`, then run `npm run subtitles:data-centres`. The builder checks the complete script against `timeline.json` and native `words.json` timings. The render command checks for stale subtitle files before starting.
 - The generated `production/data-centres-natural/subtitles.srt` contains the same wording and frame-rounded timing as the burned-in subtitles. Typography and placement live in `src/videos/data-centres/Subtitles.tsx`.

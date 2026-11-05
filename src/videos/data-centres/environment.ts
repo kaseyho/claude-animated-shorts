@@ -3,7 +3,7 @@ import type { Stage } from './world';
 
 // Original procedural environments. The central story props stay dominant;
 // detail decreases with distance and movement is deterministic render time.
-const PALETTE = ['#c5b9a3', '#aebfc1', '#b8b0ba', '#cbb59d', '#a7b8a3', '#bcc6c8'];
+const PALETTE = ['#d2b898', '#9dbec3', '#b8a6c1', '#d2a88c', '#a4b999', '#a6bdca'];
 const trim = '#657e89';
 
 function sky(s: Stage) {
@@ -95,7 +95,7 @@ function bench(s: Stage, x: number, z: number) {
   for (const y of [.9, 1.18]) s.box(x, y, z - .3, 2, .18, .1, '#b1987e', s.root, false);
 }
 
-function car(s: Stage, x: number, z: number, colour = '#7895a2', moving = true) {
+function car(s: Stage, x: number, z: number, colour = '#7895a2', moving = true, speed = .95) {
   const g = new T.Group(); g.position.set(x, 0, z); s.root.add(g);
   s.box(0, .58, 0, 2.5, .55, 1.18, colour, g, false);
   s.box(-.15, 1.04, 0, 1.35, .58, 1.06, colour, g, false);
@@ -106,14 +106,107 @@ function car(s: Stage, x: number, z: number, colour = '#7895a2', moving = true) 
     const wheel = s.mesh(new T.CylinderGeometry(.32, .32, .16, 12), '#4d5962', [a, .31, b], g, false);
     wheel.rotation.x = Math.PI / 2; wheels.push(wheel);
   }
-  if (moving) s.updates.push(t => { g.position.x = x + Math.min(t, 8) * .58; for (const wheel of wheels) wheel.rotation.y = -t * 1.8; });
+  s.contactShadow(1.35, .65, g);
+  if (speed < 0) g.rotation.y = Math.PI;
+  if (moving) s.updates.push(t => {
+    g.position.x = x + t * speed;
+    // Rotate about the cylinder's own Y axis before its X orientation.
+    for (const wheel of wheels) wheel.rotation.y = -t * speed / .32;
+  });
   return g;
 }
 
-function resident(s: Stage, x: number, z: number, index: number, walking = false, gesture = false) {
+function deliveryVan(s: Stage, x: number, z: number, speed = .85) {
+  const g = car(s, x, z, '#dca154', true, speed);
+  s.box(-.48, 1.08, 0, 1.35, 1.2, 1.16, '#dca154', g, false);
+  s.box(-.48, 1.15, .595, .8, .55, .03, '#f3dbac', g, false);
+  s.box(-.48, 1.15, .617, .4, .28, .02, '#688f95', g, false);
+  return g;
+}
+
+function bicycle(s: Stage, x: number, z: number, speed: number) {
+  const g = new T.Group(); g.position.set(x, 0, z); s.root.add(g);
+  if (speed < 0) g.rotation.y = Math.PI;
+  s.contactShadow(1, .4, g);
+  const wheels: T.Mesh[] = [];
+  for (const wx of [-.65, .65]) {
+    const wheel = s.mesh(new T.TorusGeometry(.43, .055, 6, 20), '#364a59', [wx, .46, 0], g, false);
+    for (let i = 0; i < 4; i++) {
+      const a = i * Math.PI / 4;
+      s.rod([-.38 * Math.cos(a), -.38 * Math.sin(a), 0], [.38 * Math.cos(a), .38 * Math.sin(a), 0], .014, '#a9c3c7', wheel);
+    }
+    wheels.push(wheel);
+  }
+  for (const [a, b] of [
+    [[-.65,.46,0],[-.2,1.02,0]], [[-.2,1.02,0],[0,.46,0]], [[0,.46,0],[-.65,.46,0]],
+    [[-.2,1.02,0],[.4,1.05,0]], [[.4,1.05,0],[0,.46,0]], [[.4,1.05,0],[.65,.46,0]],
+  ]) s.rod(a, b, .035, '#d08055', g);
+  s.box(-.2,1.08,0,.3,.08,.22,'#354856',g,false);
+  s.rod([.4,1.05,0],[.4,1.3,0],.035,'#516a77',g);
+  s.rod([.3,1.31,-.2],[.3,1.31,.2],.035,'#516a77',g);
+  const torso=s.box(-.13,1.52,0,.36,.65,.35,'#678cba',g,false); torso.rotation.z=-.24;
+  s.sphere(-.02,2,0,.24,'#e6b992',g);
+  const helmet=s.mesh(new T.SphereGeometry(.26,12,6,0,Math.PI*2,0,Math.PI/2),'#f0b953',[-.02,2.04,0],g,false);
+  helmet.scale.set(1,.6,1);
+  s.rod([-.03,1.72,.14],[.32,1.31,.15],.045,'#4b576b',g);
+  const legs = [-1,1].map(side => {
+    const thigh=s.rod([-.23,1.22,side*.1],[.05,.88,side*.13],.06,'#4b576b',g);
+    const shin=s.rod([.05,.88,side*.13],[0,.52,side*.13],.05,'#4b576b',g);
+    return {thigh,shin,side};
+  });
+  s.updates.push(t=>{
+    g.position.x=x+t*speed;
+    for(const wheel of wheels)wheel.rotation.z=-t*speed/.43;
+    for(const {thigh,shin,side} of legs){
+      const phase=t*speed*3+side*Math.PI/2;
+      thigh.rotation.z=.2*Math.sin(phase);
+      shin.position.y=.69+.09*Math.sin(phase);
+    }
+  });
+  return g;
+}
+
+function clipboard(s: Stage, actor: T.Object3D) {
+  const board=s.box(.12,1.15,.16,.48,.61,.06,'#b7855c',actor,false);
+  s.box(0,.02,.04,.4,.49,.025,'#f0e8cf',board,false);
+  for(let i=0;i<3;i++)s.box(0,.12-i*.1,.059,.25,.02,.012,'#8b9fa4',board,false);
+  s.updates.push(t=>{board.rotation.z=.045*Math.sin(t*1.8+actor.position.x);});
+}
+
+function worker(s: Stage, x: number, z: number, index: number, walking = false) {
+  const actor=resident(s,x,z,index,walking,true);
+  // The sprite includes transparent top margin: its crown is around 2.05,
+  // not the 2.6-unit plane top. Keep the hat attached to that drawn head.
+  const hardhat=s.mesh(new T.SphereGeometry(.31,12,6,0,Math.PI*2,0,Math.PI/2),'#e9b34e',[0,2.04,.02],actor,false);
+  hardhat.scale.y=.45;
+  const brim=s.box(0,2.04,.02,.72,.05,.4,'#e9b34e',actor,false);
+  s.updates.push(t=>{
+    const bob=walking?0:.025*Math.sin(t*2+index);
+    hardhat.position.y=2.04+bob;brim.position.y=2.04+bob;
+  });
+  return actor;
+}
+
+function birds(s: Stage) {
+  for(let i=0;i<3;i++){
+    const g=new T.Group();g.position.set(-5+i*1.2,8+i*.36,-19-i);s.root.add(g);
+    const left=new T.Group(),right=new T.Group();g.add(left,right);
+    s.rod([-.36,.16,0],[0,0,0],.025,'#678390',left);
+    s.rod([0,0,0],[.36,.16,0],.025,'#678390',right);
+    s.updates.push((t,_u,cam)=>{
+      g.position.x=-5+i*1.2+t*.65;
+      g.position.y=8+i*.36+.12*Math.sin(t*2+i);
+      g.quaternion.copy(cam.quaternion);
+      left.rotation.z=.22*Math.sin(t*5+i);
+      right.rotation.z=-.22*Math.sin(t*5+i);
+    });
+  }
+}
+
+function resident(s: Stage, x: number, z: number, index: number, walking = false, gesture = false, distance = 3.6) {
   return s.actor(x, z, index, 'neutral', 2.6, {
     background: true, gesture,
-    ...(walking ? { walk: { from: [x, z] as [number, number], to: [x + 3.6, z] as [number, number], duration: 8 } } : {}),
+    ...(walking ? { walk: { from: [x, z] as [number, number], to: [x + distance, z] as [number, number], duration: 8 } } : {}),
   });
 }
 
@@ -125,8 +218,17 @@ function street(s: Stage, night: boolean) {
     s.box(-3, .025, z + (z < -6 ? -.7 : .7), 55, .07, .7, '#b7b9ab', s.root, false);
   }
   for (let x = -28; x < 23; x += 3) s.box(x, .042, -6.2, 1.3, .015, .07, '#d9d3b8', s.root, false);
+  // A second crossing and bicycle strip keep movement connected to a street,
+  // rather than making passing vehicles appear to drift over a green platform.
+  for(let z=-7.3;z<-5;z+=.42)s.box(-5.9,.065,z,2.2,.016,.21,'#f0e7cf',s.root,false);
+  s.box(-3,.038,-3.92,55,.025,.42,'#739f9a',s.root,false);
+  for(const x of [-8.1,5.4]){
+    s.rod([x,0,-4.2],[x,2.1,-4.2],.04,'#6e838e');
+    s.box(x,1.86,-4.2,.42,.55,.1,'#e0b456',s.root,false);
+    s.box(x,1.86,-4.13,.24,.31,.025,'#f0e6ca',s.root,false);
+  }
   // A foreground cross-street anchors the lower frame and connects the footpath.
-  // Keep traffic in the rear lane so it cannot cross the close-up residents.
+  // Selected wide shots get a brief foreground pass below the residents' faces.
   s.box(0,.012,10.4,70,.03,3.6,night?'#52636e':'#899294',s.root,false);
   s.box(0,.025,8.35,70,.08,.5,'#c3c6ba',s.root,false);
   for(let x=-32;x<33;x+=3)s.box(x,.035,10.4,1.3,.015,.07,'#d9d3b8',s.root,false);
@@ -178,7 +280,74 @@ function neighbourhood(s: Stage, night = false) {
   resident(s, -4.9, -8.3, 11);
   resident(s, 4.8, -3.7, 12);
   resident(s, -10.7, -8.4, 13);
-  if (s.id !== 2) car(s, -6.8, -6.25, night ? '#7f8793' : '#7397a4', true);
+  // Passing cars, a bicycle and independent walkers provide actual local action.
+  // The central corridor stays clear for story characters and subtitle boxes.
+  car(s, -11.5, -6.8, night ? '#7f8793' : '#4e919d', true, 1.55);
+  car(s, 10, -5.55, '#cb775a', true, -1.2);
+  bicycle(s,-7.7,-3.9,.72);
+  if(s.id===1||s.id===2||s.id===10)deliveryVan(s,-13.8,-6.85,1.35);
+  if(s.id!==7){
+    resident(s,s.id===4?-5.2:-3.6,s.id===4?1.8:3.3,36,true,false,s.id===4?.8:.7);
+    if(s.id!==2){
+      const rider=bicycle(s,3.1,2.8,.18);rider.scale.setScalar(.82);
+    }
+    const neighbour=resident(s,3.6,.65,37,false,true);clipboard(s,neighbour);
+  }
+  // Small street furniture provides foreground scale without taller occluders.
+  for(const x of [-5.7,5.7]){
+    s.box(x,.45,3.9,.52,.9,.5,'#658b8a',s.root,false);
+    s.box(x,.94,3.9,.61,.09,.57,'#4c6e76',s.root,false);
+    s.box(x,.65,4.16,.22,.12,.025,'#d6d4b1',s.root,false);
+  }
+  // Street-level colour and depth: storefront awnings under two distant facades.
+  for(const x of [-5.1,4.3]){
+    const awning=s.box(x,2.25,-8.1,2.3,.14,.75,x<0?'#cd8c65':'#659f9d',s.root,false);
+    awning.rotation.x=.16;
+    for(let i=0;i<4;i++)s.box(x-.9+i*.6,2.23,-8.08,.24,.15,.78,'#ebd6b0',s.root,false);
+  }
+  birds(s);
+  if(s.id===1){
+    // A short service street behind the lead character creates a visible pass
+    // during the opening; it stays in front of the facility, not inside it.
+    s.box(0,.04,.85,18,.05,1.65,'#92a1a1',s.root,false);
+    for(let x=-8;x<9;x+=2)s.box(x,.075,.85,.8,.02,.055,'#e5dfc6',s.root,false);
+    const van=deliveryVan(s,-3.1,.85,.8);van.scale.setScalar(.6);
+  }
+  if(s.id===2||s.id===7||s.id===10){
+    // A brief foreground pass is visible in the opening wide of these scenes.
+    // It is already beyond the portrait view when the camera cuts closer.
+    const pass=car(s,-8.5,10.25,s.id===2?'#548f9f':'#cb835b',true,6.7);
+    pass.scale.setScalar(.72);
+  }
+}
+
+function excavator(s: Stage, x: number, z: number) {
+  const g=new T.Group();g.position.set(x,0,z);g.rotation.y=-.3;s.root.add(g);
+  s.contactShadow(1.5,.85,g);
+  for(const side of [-.52,.52]){
+    s.box(0,.3,side,2.2,.48,.35,'#475d69',g,false);
+    for(const wx of [-.75,0,.75]){
+      const wheel=s.mesh(new T.CylinderGeometry(.23,.23,.38,10),'#6e8086',[wx,.3,side],g,false);wheel.rotation.x=Math.PI/2;
+    }
+  }
+  const body=new T.Group();g.add(body);
+  s.box(-.1,.8,0,1.55,.6,1.2,'#e0a646',body,false);
+  s.box(-.5,1.48,0,.88,1,.95,'#e0a646',body,false);
+  s.box(-.5,1.52,.49,.62,.62,.03,'#8db5c0',body,false);
+  s.box(-.5,2.02,0,1.02,.1,1.09,'#596f7a',body,false);
+  const boom=new T.Group();boom.position.set(.55,1.02,0);body.add(boom);
+  s.box(.65,.15,0,1.5,.23,.25,'#d79d3d',boom,false);
+  const arm=new T.Group();arm.position.set(1.35,.15,0);boom.add(arm);
+  s.box(.5,-.05,0,1.1,.2,.23,'#e0ac4c',arm,false);
+  const bucket=s.box(1.08,-.25,0,.47,.52,.62,'#596d76',arm,false);bucket.rotation.z=-.2;
+  s.rod([.1,.94,0],[.8,1.35,0],.06,'#6c7d80',body);
+  s.updates.push(t=>{
+    body.rotation.y=.13*Math.sin(t*.8);
+    boom.rotation.z=.65+.22*Math.sin(t*1.15);
+    arm.rotation.z=-1.15-.25*Math.sin(t*1.15+.6);
+    bucket.rotation.z=-.2+.1*Math.sin(t*1.15+1.2);
+  });
+  return g;
 }
 
 function construction(s: Stage) {
@@ -197,19 +366,30 @@ function construction(s: Stage) {
   const cable = s.rod([-1.7, 9.9, -10], [-1.7, 5.8, -10], .025, '#727d80');
   const load = s.box(-1.7, 5.55, -10, 1.6, .45, .8, '#a6a7a0', s.root, false);
   s.updates.push(t => {
-    const lift = .4 * Math.sin(t * .35);
+    const lift = 1.05 * Math.sin(t * .85);
     load.position.y = 5.55 + lift;
     cable.scale.y = 1 - lift / 4.1; cable.position.y = 7.85 + lift / 2;
   });
-  resident(s, -5.8, .6, 16, false, true);
-  resident(s, -9.8, -1, 17);
-  car(s, 5.8, -6.3, '#baa37a', false);
+  const foreman=worker(s, 3.3, 4.4, 16);clipboard(s,foreman);
+  worker(s, -7.4, -1, 17);
+  excavator(s,-4,4.7).scale.setScalar(.75);
+  // Pallets and cones sit beside the excavator's work area, clear of the hero.
+  for(let i=0;i<3;i++){
+    s.box(-4.3+i*.4,.13,5.5,.35,.25,.55,'#bfa27e',s.root,false);
+    s.box(-4.3+i*.4,.32,5.5,.33,.09,.5,'#d3b795',s.root,false);
+  }
+  for(const x of [-5.1,-2.9]){
+    s.box(x,.04,5.4,.44,.08,.44,'#576979',s.root,false);
+    s.mesh(new T.ConeGeometry(.19,.55,8),'#df8850',[x,.34,5.4],s.root,false);
+  }
+  deliveryVan(s, 7, -5.55, -.72);
 }
 
 function serverHall(s: Stage) {
   s.box(-4, -.005, -8, 34, .03, 60, '#a5b6b9', s.root, false);
-  s.box(-5, 5, -13, 30, 10, .35, '#aebdc4', s.root, false);
-  s.box(-16, 5, -5, .3, 10, 16, '#91a6b4', s.root, false);
+  s.box(-5, 7, -13, 30, 14, .35, '#aebdc4', s.root, false);
+  s.box(-16, 7, -5, .3, 14, 16, '#91a6b4', s.root, false);
+  s.box(-3,12,-1,32,.2,27,'#bccbcb',s.root,false);
   for (let x = -18; x <= 8; x += 3) {
     s.box(x, .018, -8, .025, .012, 60, '#c2ced0', s.root, false);
     s.box(x, 5, -12.78, .1, 10, .07, '#96acb6', s.root, false);
@@ -220,7 +400,11 @@ function serverHall(s: Stage) {
       s.box(x, 1.7, z, 1.5, 3.4, 1.2, '#5b7384', s.root, false);
       for (let row = 0; row < 6; row++) {
         s.box(x, .45 + row * .45, z + .63, 1.22, .27, .04, '#91a6b0', s.root, false);
-        s.box(x + .42, .45 + row * .45, z + .66, .08, .05, .025, '#a5d2bf', s.root, false);
+        const led=s.box(x + .42, .45 + row * .45, z + .66, .1, .07, .025, '#78d8bd', s.root, false);
+        led.material.emissive.set('#6cd9b9');
+        s.updates.push(t=>{
+          led.material.emissiveIntensity=.18+.3*(.5+.5*Math.sin(t*2.6+row*.9+x+z));
+        });
       }
     }
   }
@@ -232,6 +416,32 @@ function serverHall(s: Stage) {
   s.box(-8.5, .025, 2, 1.4, .03, 12, '#b7c4c6', s.root, false);
   resident(s, -5.2, -5.5, 18, false, true);
   resident(s, -10.5, -1, 19, true);
+  // A visible rolling service trolley and technician give the hall a human task.
+  const cart=new T.Group();cart.position.set(-2.75,0,3.8);s.root.add(cart);
+  s.contactShadow(.8,.6,cart);
+  s.box(0,.6,0,1.2,.12,.9,'#758e9a',cart,false);
+  s.box(0,1.25,0,1.2,.12,.9,'#829da6',cart,false);
+  for(const x of [-.5,.5])for(const z of [-.34,.34]){
+    s.rod([x,.15,z],[x,1.4,z],.035,'#657d89',cart);
+    const wheel=s.mesh(new T.CylinderGeometry(.13,.13,.09,10),'#435867',[x,.16,z],cart,false);wheel.rotation.x=Math.PI/2;
+  }
+  const laptop=s.box(0,1.56,-.2,.72,.47,.055,'#334f63',cart,false);laptop.rotation.x=-.12;
+  s.box(0,1.56,-.16,.59,.35,.025,'#6ecbbd',cart,false);
+  s.box(0,1.33,.08,.72,.04,.47,'#405f73',cart,false);
+  s.updates.push(t=>{cart.position.x=-2.75+t*.08;});
+  resident(s,-3.65,3.8,42,true,false,.64);
+  // Wall displays show abstract activity, not fabricated consumption readings.
+  for(const x of [-8.3,-3.3]){
+    s.box(x,5.8,-12.55,3.7,1.8,.16,'#426577',s.root,false);
+    s.box(x,5.8,-12.45,3.4,1.5,.05,'#6c919e',s.root,false);
+    for(let i=0;i<7;i++){
+      const bar=s.box(x-1.35+i*.45,5.4,-12.4,.21,.5,.04,i%2?'#8dcbbd':'#e2c777',s.root,false);
+      s.updates.push(t=>{
+        const h=.32+.52*(.5+.5*Math.sin(t*1.4+i*.7+x));
+        bar.scale.y=h/.5;bar.position.y=5.15+h/2;
+      });
+    }
+  }
 }
 
 function coolingYard(s: Stage) {
@@ -246,12 +456,19 @@ function coolingYard(s: Stage) {
     s.rod([x, .2, 4.8], [x, 1.1, 4.8], .11, '#7898a3');
     s.rod([x, 1.1, 4.8], [x, 1.1, 3.5], .11, '#7898a3');
     const wheel = s.mesh(new T.TorusGeometry(.23, .04, 6, 14), '#ba8467', [x, 1.14, 5.02], s.root, false);
+    s.box(.19,0,.04,.12,.09,.04,'#e1b765',wheel,false);
+    s.updates.push(t=>{wheel.rotation.z=.45*Math.sin(t*.8+x);});
     s.rod([x, 1.14, 4.8], [x, 1.14, 5.02], .045, '#708b96');
     s.rod([x - .18, 1.14, 5.02], [x + .18, 1.14, 5.02], .025, '#ba8467');
     s.rod([x, .96, 5.02], [x, 1.32, 5.02], .025, '#ba8467');
   }
   s.rod([2.55, .45, 4.8], [3.45, .45, 4.8], .11, '#7898a3');
   resident(s, 2.4, 2.7, 20, false, true);
+  const technician=worker(s,-4.5,1.6,43);clipboard(s,technician);
+  for(let i=0;i<3;i++){
+    const pulse=s.sphere(2.55,1.12,3.5,.08,'#b7e7e7');
+    s.updates.push(t=>{pulse.position.z=3.5+((t*.35+i/3)%1)*1.3;});
+  }
 }
 
 function substation(s: Stage) {
@@ -262,6 +479,9 @@ function substation(s: Stage) {
     for (const dx of [-.34, .34]) s.mesh(new T.CylinderGeometry(.09, .12, .4, 8), '#b2c1b8', [x + dx, 1.5, z], s.root, false);
   }
   resident(s, -3.5, -2.9, 21, false, true);
+  const technician=worker(s,4.8,2.1,44);clipboard(s,technician);
+  s.box(4.8,.3,3.1,.9,.6,.5,'#cf9e59',s.root,false);
+  s.box(4.8,.64,3.1,.35,.08,.16,'#5d7682',s.root,false);
 }
 
 function shops(s: Stage) {
@@ -273,8 +493,15 @@ function shops(s: Stage) {
     for (let k = 0; k < 5; k++) s.box(x - 1 + k * .5, 2.28, z + 1.4, .22, .17, .82, '#d9d8c3', s.root, false);
   }
   bench(s, -1.5, 6.8);
-  resident(s, -3.3, .8, 22);
-  resident(s, 3.5, .5, 23);
+  resident(s, -3.3, .8, 22,false,true);
+  resident(s, 3.5, .5, 23,false,true);
+  for(const [x,z] of [[-4.2,.7],[4.4,.1]]){
+    s.box(x,.78,z,.8,.12,.7,'#bd956d',s.root,false);
+    s.rod([x,0,z],[x,.75,z],.08,'#657b84');
+    s.mesh(new T.CylinderGeometry(.09,.07,.22,10),'#e2d8b8',[x-.14,.94,z],s.root,false);
+    const steam=s.mesh(new T.TorusGeometry(.09,.012,4,10,Math.PI),'#c4d6d6',[x-.14,1.16,z],s.root,false);
+    s.updates.push(t=>{steam.position.y=1.16+.06*Math.sin(t*2+x);});
+  }
 }
 
 function meetingRoom(s: Stage) {
@@ -284,7 +511,7 @@ function meetingRoom(s: Stage) {
   // An open-front civic room: the rear wall and windows locate the meeting.
   s.box(-1.5, 3.8, -5.5, 22, 7.6, .25, '#b5c2c2', s.root, false);
   s.box(-12, 3.8, -1.8, .25, 7.6, 7.6, '#a3b5b8', s.root, false);
-  for (const x of [-8.4, -3.5, 1.4, 6.3]) {
+  for (const x of [-8.4, 1.4, 6.3]) {
     s.box(x, 4.5, -5.33, 3.6, 3.8, .07, '#7899a8', s.root, false);
     s.box(x, 4.5, -5.27, 3.3, 3.5, .07, '#c2dbdd', s.root, false);
     for (const dx of [-.8, .8]) s.box(x + dx, 3.65, -5.2, .9, 1.7 + (dx < 0 ? .4 : 0), .05, '#a5babc', s.root, false);
@@ -297,14 +524,32 @@ function meetingRoom(s: Stage) {
     s.box(x, 1.3, -4, .82, 1.1, .12, '#91a7a8', s.root, false);
     for (const dx of [-.3, .3]) s.rod([x + dx, 0, -3.5], [x + dx, .65, -3.5], .035, '#667f88');
   }
-  resident(s, -4.7, -1.7, 24);
-  resident(s, -3.3, -1.7, 25);
-  resident(s, 3.4, -1.7, 26);
+  const left=resident(s, -4.7, -1.7, 24,false,true);clipboard(s,left);
+  resident(s, -3.3, -1.7, 25,false,true);
+  const right=resident(s, 3.4, -1.7, 26,false,true);clipboard(s,right);
   resident(s, 4.8, -1.7, 27, false, true);
   // A quiet side table and papers add functional detail without new claims.
   s.box(-8, 1.4, -.6, 3, .18, 1.2, '#a58e75', s.root, false);
   for (const x of [-9.1, -6.9]) s.rod([x, 0, -.6], [x, 1.3, -.6], .08, '#7b8d91');
   for (let i = 0; i < 3; i++) s.box(-8.7 + i * .7, 1.53, -.5, .5, .05, .7, '#e4dfcc', s.root, false);
+  // A small working presentation board and listeners differentiate this from
+  // the exterior crowd shot. The diagram is an illustrative site plan.
+  const board=s.box(-3.5,4.5,-5.1,3.6,2.5,.15,'#7c9199',s.root,false);
+  s.box(0,0,.1,3.35,2.25,.045,'#e5e4d0',board,false);
+  for(const [x,y,w,h] of [[-.65,.35,.6,.4],[.45,.2,.8,.55],[-.45,-.4,.55,.35]]){
+    s.box(x,y,.14,w,h,.035,'#86aaa9',board,false);
+  }
+  s.box(0,-.05,.17,1.9,.05,.02,'#b89465',board,false);
+  for(let i=0;i<3;i++){
+    const dot=s.sphere(-1.15+i*1.1,-.75,.2,.09,'#c69c55',board);
+    s.updates.push(t=>{dot.scale.setScalar(.85+.15*Math.sin(t*1.7+i));});
+  }
+  // Papers on the near table edge remain lower than the speakers' faces.
+  for(const x of [-.9,.95]){
+    const paper=s.box(x,1.74,1.05,.46,.025,.36,'#eee6cd',s.root,false);
+    paper.rotation.y=x*.16;
+    s.box(x,1.76,1.08,.3,.008,.025,'#8fa7a9',s.root,false);
+  }
   tree(s, -9.3, -3.5, .85, true);
 }
 
@@ -320,10 +565,13 @@ export function addEnvironment(s: Stage) {
   if (s.id === 6) {
     fence(s, 3, -1.1, 4.2, 1.1);
     lamp(s, -4.8, 2, false);
-    resident(s, -3.7, 2.5, 28);
+    resident(s, -3.7, 2.5, 28,false,true);
   }
   if (s.id === 7) {
-    for (const [x, z, index] of [[-4.1, 2.4, 29], [4.2, 2.8, 30], [-3.8, -1.2, 31], [3.6, -1.5, 32]]) resident(s, x, z, index, false, index === 29);
+    for (const [x, z, index] of [[-4.1, 2.4, 29], [4.2, 2.8, 30], [-3.8, -1.2, 31], [3.6, -1.5, 32]]) {
+      const person=resident(s, x, z, index, false, true);
+      if(index===29||index===32)clipboard(s,person);
+    }
     fence(s, -6.8, .4, 2.5, .9);
     bench(s, 6.5, .4);
   }
